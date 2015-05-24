@@ -112,83 +112,44 @@ hi	Tooltip		gui=bold
 
 
 ""	general syntax highlighting
-""	any comment
 hi	Comment		cterm=NONE		ctermfg=243		gui=NONE	guifg=#767676
-""	any constant
 hi	Constant	cterm=bold		ctermfg=230		gui=bold	guifg=#FF0033
-""	a string constant: "this is a string"
 hi	String		cterm=NONE		ctermfg=40		gui=NONE	guifg=#00CC00
-""	a character constant: 'c', '\n'
 hi	Character	cterm=NONE		ctermfg=40		gui=NONE	guifg=#00CC00
-""	a number constant: 234, 0xff
-hi	Number		cterm=bold		ctermfg=197		gui=bold	guifg=#FF0033
-""	a boolean constant: TRUE, false
-hi	Boolean		cterm=bold		ctermfg=197		gui=bold	guifg=#FF0033
-""	a floating point constant: 2.3e10
-hi	Float		cterm=bold		ctermfg=197		gui=bold	guifg=#FF0033
-""	any variable name
+hi	Number		cterm=bold		ctermfg=161		gui=bold	guifg=#FF0033
+hi	Boolean		cterm=bold		ctermfg=161		gui=bold	guifg=#FF0033
+hi	Float		cterm=bold		ctermfg=161		gui=bold	guifg=#FF0033
 hi	Identifier	cterm=bold		ctermfg=214		gui=bold	guifg=#FF9900
-""	function name (also: methods for classes)
-hi	Function	cterm=NONE		ctermfg=193		gui=NONE	guifg=#FF9900
-""	any statement
-hi	Statement	cterm=bold		ctermfg=135		gui=bold	guifg=#9933FF
-""	if, then, else, endif, switch, etc.
+hi	Function	cterm=NONE		ctermfg=123		gui=NONE	guifg=#FF9900
+hi	Statement	cterm=bold		ctermfg=165		gui=bold	guifg=#9933FF
 hi	Conditional	cterm=bold		ctermfg=165		gui=bold	guifg=#CC00FF
-""	for, do, while, etc.
 hi	Repeat		cterm=bold		ctermfg=165		gui=bold	guifg=#CC00FF
-""	case, default, etc.
 hi	Label		cterm=bold		ctermfg=165		gui=bold	guifg=#CC00FF
-""	"sizeof", "+", "*", etc.
-hi	Operator	cterm=bold		ctermfg=135		gui=bold	guifg=#9933FF
-""	any other keyword
+hi	Operator	cterm=bold		ctermfg=129		gui=bold	guifg=#9933FF
 hi	Keyword		cterm=bold		ctermfg=135		gui=bold	guifg=#9933FF
-""	try, catch, throw
 hi	Exception	cterm=bold		ctermfg=165		gui=bold	guifg=#CC00FF
-""	generic Preprocessor
-hi	PreProc		cterm=bold		ctermfg=135		gui=bold	guifg=#9933FF
-""	preprocessor #include
+hi	PreProc		cterm=bold		ctermfg=161		gui=bold	guifg=#9933FF
 hi	Include		cterm=bold		ctermfg=165		gui=bold	guifg=#CC00FF
-""	preprocessor #define
-hi	Define		cterm=bold		ctermfg=135		gui=bold	guifg=#9933FF
-""	same as Define
-hi	Macro		cterm=bold		ctermfg=135		gui=bold	guifg=#9933FF
-""	preprocessor #if, #else, #endif, etc.
+hi	Define		cterm=bold		ctermfg=124		gui=bold	guifg=#9933FF
+hi	Macro		cterm=bold		ctermfg=69		gui=bold	guifg=#9933FF
 hi	PreCondit	cterm=bold		ctermfg=165		gui=bold	guifg=#CC00FF
-""	int, long, char, etc.
-hi	Type		cterm=bold		ctermfg=39		gui=bold	guifg=#3366FF
-""	static, register, volatile, etc.
-hi	StorageClass	cterm=bold	ctermfg=39		gui=bold	guifg=#3366FF
-""	struct, union, enum, etc.
-hi	Structure	cterm=bold		ctermfg=39		gui=bold	guifg=#3366FF
-""	Typedef	A typedef
-hi	Typedef		cterm=bold		ctermfg=67		gui=bold	guifg=#336699
-""	any special symbol
+hi	Type		cterm=bold		ctermfg=33		gui=bold	guifg=#3366FF
+hi	StorageClass	cterm=bold	ctermfg=33		gui=bold	guifg=#3366FF
+hi	Structure	cterm=bold		ctermfg=33		gui=bold	guifg=#3366FF
+hi	Typedef		cterm=bold		ctermfg=33		gui=bold	guifg=#336699
 hi	Special		cterm=bold		ctermfg=214		gui=bold	guifg=#FF9900
-""	special character in a constant
 hi	SpecialChar	cterm=bold		ctermfg=214		gui=bold	guifg=#FF9900
-""	you can use CTRL-] on this
 hi	Tag			cterm=bold		ctermfg=214		gui=bold	guifg=#FF9900
-""	character that needs attention
 hi	Delimiter	cterm=bold		ctermfg=214		gui=bold	guifg=#FF9900
-""	special things inside a comment
-hi	SpecialComment	cterm=bold	ctermfg=69		gui=bold	guifg=#3366FF
-""	debugging statements
-hi	Debug		cterm=bold		ctermfg=197		gui=bold	guifg=#FF0033
-""	text that stands out, HTML links
+hi	SpecialComment	cterm=bold	ctermfg=33		gui=bold	guifg=#3366FF
+hi	Debug		cterm=bold		ctermfg=161		gui=bold	guifg=#FF0033
 hi	Underlined	cterm=underline,bold	ctermfg=214			gui=underline,bold	guifg=#FF9900
-""	left blank, hidden  |hl-Ignore|
 hi	Ignore		cterm=bold		ctermfg=160		gui=bold	guifg=#CC0000
-""	Error		any erroneous construct
 hi	Error		cterm=bold		ctermbg=160		ctermfg=255	gui=bold	guibg=#CC0000	guifg=#FFFFFF
-""	anything that needs extra attention; mostly the
-""	keywords TODO FIXME and XXX
-hi	Todo		cterm=bold		ctermfg=197		ctermbg=214	gui=bold	guifg=#FF0033	guibg=#FF9900
-
+hi	Todo		cterm=bold		ctermfg=161		ctermbg=214	gui=bold	guifg=#FF0033	guibg=#FF9900
 
 "" statusline style
 source ~/.vim/colors/statusline.vim
-
-
 
 ""	enable C syntax highlight
 ""	GNU gcc specific items
@@ -206,10 +167,6 @@ source ~/.vim/colors/statusline.vim
 :let c_ansi_constants = 1
 ""	use C syntax for *.h files, instead of C++
 :let c_syntax_for_h = 1
-
-""	additional C syntax highlight
-""hi	cAnsiFunction	cterm=NONE		ctermfg=121		gui=NONE	guifg=#66FF99
-
 
 ""	enable Java syntax highlight
 ""	All identifiers in java.lang.* are always visible in all classes.  To

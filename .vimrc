@@ -85,14 +85,6 @@ set guifont=Ubuntu\ Mono\ 15
 
 let mapleader=","
 
-"" For Meta key to work
-" let c='a'
-"  while c <= 'z'
-"  exec "set <A-".c.">=\e".c
-"  exec "imap \e".c." <A-".c.">"
-"  let c = nr2char(1+char2nr(c))
-" endw
-
 "" custom key mappings
 " Bad Habits
 noremap  <Up>    <Esc>
@@ -138,9 +130,9 @@ inoremap	( ()<Esc>i
 inoremap	[ []<Esc>i
 inoremap	" ""<Esc>i
 inoremap	' ''<Esc>i
-autocmd	FileType	c	nnoremap ; $a;
-autocmd	FileType	cpp	nnoremap ; $a;
-autocmd	FileType	java	inoremap ; $a;
+autocmd		FileType	c		nnoremap ; $a;
+autocmd		FileType	cpp		nnoremap ; $a;
+autocmd		FileType	java	inoremap ; $a;
 inoremap	<C-]>	<Esc><C-W><C-]>
 inoremap	<C-F>	<Esc><C-W><C-F>
 
@@ -158,18 +150,12 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-" autocmd VimEnter * :NERDTree .
 autocmd VimEnter * :SyntasticToggleMode
 autocmd	BufWritePost * :SyntasticCheck
 
 " autocomplpop settings
-let g:AutoComplPop_Behavior = {
-\	'c': [ {'command' : "\<C-x>\<C-o>",
-\	'pattern' : ".", 'repeat' : 0}]}
+let g:AutoComplPop_Behavior = {'c': [ {'command' : "\<C-x>\<C-o>", 'pattern' : ".", 'repeat' : 0}]}
 let g:AutoComplPop_CompleteoptPreview = 1
-
-"" Taglist settings
-let Tlist_Use_Right_Window = 1
 
 " OmniCppComplete
 let OmniCpp_NamespaceSearch = 1
@@ -183,5 +169,4 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
-
 
