@@ -129,7 +129,7 @@ hi	Float		cterm=bold		ctermfg=197		gui=bold	guifg=#FF0033
 ""	any variable name
 hi	Identifier	cterm=bold		ctermfg=214		gui=bold	guifg=#FF9900
 ""	function name (also: methods for classes)
-hi	Function	cterm=NONE		ctermfg=121		gui=NONE	guifg=#FF9900
+hi	Function	cterm=NONE		ctermfg=193		gui=NONE	guifg=#FF9900
 ""	any statement
 hi	Statement	cterm=bold		ctermfg=135		gui=bold	guifg=#9933FF
 ""	if, then, else, endif, switch, etc.
@@ -155,11 +155,11 @@ hi	Macro		cterm=bold		ctermfg=135		gui=bold	guifg=#9933FF
 ""	preprocessor #if, #else, #endif, etc.
 hi	PreCondit	cterm=bold		ctermfg=165		gui=bold	guifg=#CC00FF
 ""	int, long, char, etc.
-hi	Type		cterm=bold		ctermfg=69		gui=bold	guifg=#3366FF
+hi	Type		cterm=bold		ctermfg=39		gui=bold	guifg=#3366FF
 ""	static, register, volatile, etc.
-hi	StorageClass	cterm=bold	ctermfg=69		gui=bold	guifg=#3366FF
+hi	StorageClass	cterm=bold	ctermfg=39		gui=bold	guifg=#3366FF
 ""	struct, union, enum, etc.
-hi	Structure	cterm=bold		ctermfg=69		gui=bold	guifg=#3366FF
+hi	Structure	cterm=bold		ctermfg=39		gui=bold	guifg=#3366FF
 ""	Typedef	A typedef
 hi	Typedef		cterm=bold		ctermfg=67		gui=bold	guifg=#336699
 ""	any special symbol
