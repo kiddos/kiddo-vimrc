@@ -115,7 +115,7 @@ hi	Tooltip		gui=bold
 ""	any comment
 hi	Comment		cterm=NONE		ctermfg=243		gui=NONE	guifg=#767676
 ""	any constant
-hi	Constant	cterm=bold		ctermfg=197		gui=bold	guifg=#FF0033
+hi	Constant	cterm=bold		ctermfg=230		gui=bold	guifg=#FF0033
 ""	a string constant: "this is a string"
 hi	String		cterm=NONE		ctermfg=40		gui=NONE	guifg=#00CC00
 ""	a character constant: 'c', '\n'
@@ -129,7 +129,7 @@ hi	Float		cterm=bold		ctermfg=197		gui=bold	guifg=#FF0033
 ""	any variable name
 hi	Identifier	cterm=bold		ctermfg=214		gui=bold	guifg=#FF9900
 ""	function name (also: methods for classes)
-hi	Function	cterm=bold		ctermfg=214		gui=bold	guifg=#FF9900
+hi	Function	cterm=NONE		ctermfg=121		gui=NONE	guifg=#FF9900
 ""	any statement
 hi	Statement	cterm=bold		ctermfg=135		gui=bold	guifg=#9933FF
 ""	if, then, else, endif, switch, etc.
@@ -206,8 +206,9 @@ source ~/.vim/colors/statusline.vim
 :let c_ansi_constants = 1
 ""	use C syntax for *.h files, instead of C++
 :let c_syntax_for_h = 1
+
 ""	additional C syntax highlight
-hi	cAnsiFunction	cterm=NONE		ctermfg=121		gui=NONE	guifg=#66FF99
+""hi	cAnsiFunction	cterm=NONE		ctermfg=121		gui=NONE	guifg=#66FF99
 
 
 ""	enable Java syntax highlight
