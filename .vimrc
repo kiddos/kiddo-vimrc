@@ -7,14 +7,15 @@
 set autoindent
 set complete=.,w,b,u,U,t,k
 set completeopt+=menuone,menu,preview
-filetype plugin on
+filetype indent plugin on
 set number
 set showfulltag
-autocmd FileType c set tags+=~/.vim/tags/cpptags
-autocmd FileType c set tags+=~/.vim/tags/gl
-autocmd FileType c set tags+=~/.vim/tags/glut
-autocmd FileType c set tags+=~/.vim/tags/glew
-autocmd FileType c set tags+=~/.vim/tags/opencvtags
+autocmd FileType c,cpp set tags+=~/.vim/tags/cpptags
+autocmd FileType c,cpp set tags+=~/.vim/tags/gl
+autocmd FileType c,cpp set tags+=~/.vim/tags/glut
+autocmd FileType c,cpp set tags+=~/.vim/tags/glew
+autocmd FileType c,cpp set tags+=~/.vim/tags/opencvtags
+
 autocmd FileType php setl ofu=phpcomplete#CompletePHP
 autocmd FileType ruby,eruby setl ofu=rubycomplete#Complete
 autocmd FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
@@ -41,7 +42,6 @@ set cursorcolumn
 set cursorline
 " set dictionary=~/.vim/dictionary/cdictionary
 set encoding=utf-8
-" set expandtab
 set ignorecase
 set incsearch
 set linebreak
@@ -51,6 +51,11 @@ set showbreak=+++\
 set smartcase
 set softtabstop=4
 set tabstop=4
+autocmd FileType python set tabstop=8
+autocmd FileType python set expandtab
+autocmd FileType python set softtabstop=4
+autocmd FileType python set shiftwidth=4
+autocmd FileType python set modeline
 set timeoutlen=1000 ttimeoutlen=0
 set whichwrap+=<,>,b,s,[,],~
 set wrap
@@ -80,7 +85,7 @@ set title
 set warn
 
 "" GUI settings
-set guifont=Ubuntu\ Mono\ 15
+set guifont=Ubuntu\ Mono\ 14
 
 let mapleader=","
 
@@ -101,10 +106,11 @@ inoremap	<C-x>	<Esc>cc
 inoremap	<C-v>	<Esc>pi
 
 "" typo
-command	WQ	wq
-command	Wq	wq
-command	W	w
-command	Q	q
+command!	WQ	wq
+command!	Wq	wq
+command!	W	w
+command!	Q	q
+
 noremap		L	l
 noremap		K	k
 noremap		J	j
@@ -144,6 +150,7 @@ autocmd		FileType	java	nnoremap ; $a;
 autocmd		FileType	python	nnoremap ; $a;
 "" jump window
 inoremap	<C-]>	<Esc><C-W><C-]>
+nnoremap	<C-]>	<C-W><C-]>
 
 "" install pathogen
 execut pathogen#infect()
@@ -182,7 +189,6 @@ let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.paste = 'Þ'
 "let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
-
 
 " Macros
 nmap	<F1>	:set columns=999<CR>:set lines=46<CR>
@@ -246,6 +252,27 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+highlight	SyntasticErrorSign	cterm=BOLD	ctermfg=255	ctermbg=9	guifg=white	guibg=red
+highlight	SyntasticErrorLine	cterm=BOLD	ctermfg=255	ctermbg=9	guibg=#2f0000
+
+let b:syntastic_c_cflags = "-Wall -fopenmp -I/usr/include/ImageMagick"
+let b:syntastic_cpp_cflags = "-Wall -fopenmp -I/usr/include/ImageMagick"
+
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+
+let g:syntastic_echo_current_error = 1
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_warning_symbol = "⚠"
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_jump = 2
+
+let g:syntastic_python_pylama_quiet_messages = {
+	\ "type":  "style",
+	\ "regex": '\m\[C03\d\d\]' }
+
 "" YouCompleteMe Options
 let g:ycm_min_num_of_chars_for_completion = 2
 let g:ycm_auto_trigger = 1
@@ -278,11 +305,13 @@ let g:ycm_key_list_select_completion = []
 let g:ycm_key_list_previous_completion = []
 let g:ycm_key_invoke_completion = '<C-D>'
 let g:ycm_key_detailed_diagnostics = '<leader>d'
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_filepath_completion_use_working_dir = 1
 let g:ycm_cache_omnifunc = 0
 let g:ycm_use_ultisnips_completer = 1
 let g:ycm_disable_for_files_larger_than_kb = 4096
+autocmd BufWritePre * :YcmRestartServer
 
 nmap	<leader>f	:YcmForceCompileAndDiagnostics<CR>
 nmap	<leader>s	:YcmShowDetailedDiagnostic<CR>
