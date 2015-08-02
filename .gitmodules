@@ -1,6 +1,3 @@
-[submodule "kiddo"]
-	path = kiddo
-	url = https://github.com/kiddos/kiddo.git
 [submodule ".vim/bundle/AutoComplPop"]
 	path = .vim/bundle/AutoComplPop
 	url = https://github.com/vim-scripts/AutoComplPop.git
