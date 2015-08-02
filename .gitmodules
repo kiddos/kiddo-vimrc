@@ -1,0 +1,3 @@
+[submodule "kiddo"]
+	path = kiddo
+	url = https://github.com/kiddos/kiddo.git
