@@ -1,4 +1,4 @@
-""
+"
 ""	Author: Joseph Yu
 ""	Last Modified: 2015/7/05
 ""
@@ -29,10 +29,10 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
 "" buffer settings
 set autoread
-set backupdir=.,~/.vimtmp,.
+set backupdir=.,~/.vimtmp,/tmp
 set confirm
 set cscopepathcomp=2
-set directory=.,~/.vimtmp,.
+set directory=.,~/.vimtmp,/tmp
 set hidden
 set icon
 set iconstring=vim
@@ -88,6 +88,11 @@ set splitright
 set tabpagemax=20
 set title
 set warn
+
+if has("gui_running")
+	set lines=999
+	set columns=999
+endif
 
 "" GUI settings
 set guifont=Ubuntu\ Mono\ 14
@@ -170,11 +175,26 @@ syntax enable
 syntax on
 colorscheme kiddo
 
-nmap	<F1>	:set columns=999<CR>:set lines=46<CR>
-nmap	<F2>	:NERDTreeToggle .<CR>
+function! Test_php() range
+	if &ft == "php"
+		let dst = expand('%:t') . ".html"
+		execute ":silent ! php % > " . dst
+		execute ":silent ! google-chrome " . dst
+		execute ":pclose!"
+		execute ":redraw!"
+		let delStatus = delete(dst)
+		if delStatus != 0
+			echo "Fail to Delete temp file"
+		endif
+	endif
+endfunction
+
+nmap	<silent><F1>	:set columns=999<CR>:set lines=46<CR>
+nmap	<silent><F2>	:NERDTreeToggle .<CR>
 nmap	<F3>	:TagbarToggle<CR>
 nmap	<F4>	:GitGutterToggle<CR>
-nmap	<F5>	:!google-chrome %<CR>
+nmap	<silent><F5>	:silent ! google-chrome %<CR>:pclose!<CR>:redraw!<CR>
+nmap	<silent><F6>	:call Test_php()<CR>
 
 nmap	<leader><space>		:Tabularize / <CR>
 nmap	<leader>"			:Tabularize /"[^"]*"<CR>
