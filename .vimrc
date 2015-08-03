@@ -1,4 +1,4 @@
-"
+""
 ""	Author: Joseph Yu
 ""	Last Modified: 2015/7/05
 ""
@@ -71,7 +71,7 @@ set cmdwinheight=6
 " set columns=100
 " set lines=36
 "set relativenumber
-set fillchars=stl:\ ,stlnc:-,vert:\ ,fold:-,diff:-
+set fillchars=stl:\ ,stlnc:-,vert:\|,fold:-,diff:-
 set langmenu=en_US.UTF-8
 set laststatus=2
 " gives the number of lines that is checked for set commands.
@@ -178,10 +178,15 @@ colorscheme kiddo
 function! Test_php() range
 	if &ft == "php"
 		let dst = expand('%:t') . ".html"
+		let temp = tempname()
 		execute ":silent ! php % > " . dst
-		execute ":silent ! google-chrome " . dst
+		execute ":silent ! google-chrome " . dst " > " . temp . " 2>&1 "
 		execute ":pclose!"
 		execute ":redraw!"
+		set splitbelow
+		execute ":6split"
+		execute ":e! " . temp
+		set nosplitbelow
 		let delStatus = delete(dst)
 		if delStatus != 0
 			echo "Fail to Delete temp file"
@@ -207,13 +212,6 @@ autocmd VimEnter * silent! :SyntasticToggleMode
 autocmd VimEnter * silent! :GitGutterDisable
 autocmd	BufWritePost * silent! :SyntasticCheck
 
-nmap	<leader>f	:YcmForceCompileAndDiagnostics<CR>
-nmap	<leader>s	:YcmShowDetailedDiagnostic<CR>
-nmap	<leader>t	:YcmCompleter GetType<CR>
-nmap	<leader>p	:YcmCompleter GetParent<CR>
-nmap	<leader>r	:YcmRestartServer<CR>
-nmap	<leader><Up>	:YcmCompleter GoToDeclaration<CR>
-nmap	<leader><Down>	:YcmCompleter GoToDefinition<CR>
 
 "" ****** autocomplpop settings ******
 let g:acp_completeOption = '.,w,b,t'
@@ -251,21 +249,72 @@ let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
 endif
-"let g:airline_left_sep='>'
-"let g:airline_right_sep='<'
+
 "let g:airline_left_sep = '▶'
 "let g:airline_right_sep = '◀'
-let g:airline_left_sep = '»'
-let g:airline_right_sep = '«'
-let g:airline_symbols.crypt = '🔒'
-"let g:airline_symbols.linenr = '␊'
-"let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
+"let g:airline_left_sep = '>'
+"let g:airline_right_sep = '<'
+"let g:airline_left_sep = '⊃'
+"let g:airline_right_sep = '⊂'
+"let g:airline_left_sep = '≻'
+"let g:airline_right_sep = '≺'
+"let g:airline_left_sep = '⟩'
+"let g:airline_right_sep = '⟨'
+"let g:airline_left_sep = '◗'
+"let g:airline_right_sep = '◖'
+"let g:airline_left_sep = '⇒'
+"let g:airline_right_sep = '⇐'
+"let g:airline_left_sep = '⇉'
+"let g:airline_right_sep = '⇇'
+"let g:airline_left_sep = '↣'
+"let g:airline_right_sep = '↢'
+"let g:airline_left_sep = '→'
+"let g:airline_right_sep = '←'
+"let g:airline_left_sep = '»'
+"let g:airline_right_sep = '«'
+"let g:airline_left_sep = '⌦  '
+"let g:airline_right_sep = '⌫  '
+let g:airline_left_sep = '⊳'
+let g:airline_right_sep = '⊲ '
+
+"let g:airline_right_alt_sep = ''
+"let g:airline_left_alt_sep = '⌲'
+"let g:airline_right_alt_sep = '☄ '
+"let g:airline_left_alt_sep = '☃ '
+"let g:airline_right_alt_sep = '☂ '
+"let g:airline_left_alt_sep = '☁ '
+"let g:airline_right_alt_sep = '☬ '
+"let g:airline_left_alt_sep = '✯ '
+let g:airline_right_alt_sep = '⌘ '
+let g:airline_left_alt_sep = ''
+
+"let g:airline_symbols.crypt = '☢'
+"let g:airline_symbols.crypt = '☣'
+let g:airline_symbols.crypt = '☠'
+
+"let g:airline_symbols.linenr = ''
+"let g:airline_symbols.linenr = '⌮'
+"let g:airline_symbols.linenr = '¶'
+"let g:airline_symbols.linenr = '⇳ '
+let g:airline_symbols.linenr = '⇵ '
+
+"let g:airline_symbols.branch = '☯'
+"let g:airline_symbols.branch = '☻'
+"let g:airline_symbols.branch = '☺'
+"let g:airline_symbols.branch = '☈ '
+let g:airline_symbols.branch = '⎇ '
+
+"let g:airline_symbols.paste = 'Þ'
 "let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-"let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
+"let g:airline_symbols.paste = '℘'
+let g:airline_symbols.paste = 'ℙ '
+
+"let g:airline_symbols.readonly = ''
+let g:airline_symbols.readonly = 'ℜ '
+
+"let g:airline_symbols.whitespace = 'Ξ'
+"let g:airline_symbols.whitespace = '⇆'
+let g:airline_symbols.whitespace = '⌨  '
 " ***********************************************
 
 "" ****** OmniCppComplete ******
@@ -313,6 +362,13 @@ let g:syntastic_auto_jump = 0
 "" *********************************************************************************
 
 "" YouCompleteMe Options
+"nmap	<leader>f	:YcmForceCompileAndDiagnostics<CR>
+"nmap	<leader>s	:YcmShowDetailedDiagnostic<CR>
+"nmap	<leader>t	:YcmCompleter GetType<CR>
+"nmap	<leader>p	:YcmCompleter GetParent<CR>
+"nmap	<leader>r	:YcmRestartServer<CR>
+"nmap	<leader><Up>	:YcmCompleter GoToDeclaration<CR>
+"nmap	<leader><Down>	:YcmCompleter GoToDefinition<CR>
 "let g:ycm_min_num_of_chars_for_completion = 2
 "let g:ycm_auto_trigger = 1
 "let g:ycm_min_num_identifier_candidate_chars = 0
