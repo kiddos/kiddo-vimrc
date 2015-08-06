@@ -70,7 +70,7 @@ set cmdheight=2
 set cmdwinheight=6
 " set columns=100
 " set lines=36
-"set relativenumber
+set relativenumber
 set fillchars=stl:\ ,stlnc:-,vert:\|,fold:-,diff:-
 set langmenu=en_US.UTF-8
 set laststatus=2
@@ -95,7 +95,11 @@ if has("gui_running")
 endif
 
 "" GUI settings
-set guifont=Ubuntu\ Mono\ 14
+if has("unix")
+	set guifont=Ubuntu\ Mono\ 13
+else
+	set guifont=Consolas:h12
+endif
 
 let mapleader=","
 
@@ -207,6 +211,8 @@ nmap	<leader>(			:Tabularize /(.*)<CR>
 nmap	<leader>=			:Tabularize /= <CR>
 nmap	<leader>a			:AV<CR>
 nmap	<leader>n			:AN<CR>
+
+imap	<C-F>	<C-R><Tab>
 
 autocmd VimEnter * silent! :SyntasticToggleMode
 autocmd VimEnter * silent! :GitGutterDisable
