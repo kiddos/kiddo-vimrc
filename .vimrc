@@ -15,7 +15,7 @@ autocmd FileType c,cpp set tags+=~/.vim/tags/cpptags
 autocmd FileType c,cpp set tags+=~/.vim/tags/gl
 autocmd FileType c,cpp set tags+=~/.vim/tags/glut
 autocmd FileType c,cpp set tags+=~/.vim/tags/glew
-autocmd FileType c,cpp set tags+=~/.vim/tags/opencvtags
+autocmd FileType c,cpp set tags+=~/.vim/tags/opencvtag
 
 autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd FileType cpp setl ofu=ccomplete#Complete
@@ -50,7 +50,7 @@ set ignorecase
 set incsearch
 set linebreak
 set shiftround
-set showbreak=+++\
+"set showbreak=+++\
 set smartcase
 set tabstop=4
 set softtabstop=4
@@ -165,10 +165,7 @@ inoremap <expr>	<Down>		pumvisible() ? "\<C-N>" : "\<Down>"
 inoremap <expr>	<Up>		pumvisible() ? "\<C-P>" : "\<Up>"
 inoremap <expr> <PageDown>	pumvisible() ? "\<PageDown>\<C-P>\<C-N>" : "\<PageDown>"
 inoremap <expr> <PageUp>	pumvisible() ? "\<PageUp>\<C-P>\<C-N>" : "\<PageUp>"
-inoremap <expr> <C-D>		pumvisible() ? "\<PageDown>\<C-P>\<C-N>" : "\<C-D>"
-inoremap <expr> <C-U>		pumvisible() ? "\<PageUp>\<C-P>\<C-N>" : "\<C-U>"
 inoremap <C-D>	<C-X><C-O><C-P>
-
 
 "" install pathogen
 execut pathogen#infect()
@@ -177,6 +174,7 @@ execut pathogen#infect()
 set background=dark
 syntax enable
 syntax on
+set t_Co=256
 colorscheme kiddo
 
 function! Test_php() range
@@ -210,7 +208,7 @@ nmap	<leader>"			:Tabularize /"[^"]*"<CR>
 nmap	<leader>(			:Tabularize /(.*)<CR>
 nmap	<leader>=			:Tabularize /= <CR>
 nmap	<leader>a			:AV<CR>
-nmap	<leader>n			:AN<CR>
+nmap	<leader>c			cst
 
 imap	<C-F>	<C-R><Tab>
 
@@ -220,27 +218,27 @@ autocmd	BufWritePost * silent! :SyntasticCheck
 
 
 "" ****** autocomplpop settings ******
-let g:acp_completeOption = '.,w,b,t'
-let g:acp_completeoptPreview = 1
-let g:acp_behaviorSnipmateLength = -1
-let g:acp_behaviorKeywordLength = 1
+"let g:acp_completeOption = '.,w,b,t'
+"let g:acp_completeoptPreview = 1
+"let g:acp_behaviorSnipmateLength = -1
+"let g:acp_behaviorKeywordLength = 1
 "" **********************************************
 
 "" ****** clang complete settings ******
-let g:clang_auto_select = 1
-let g:clang_complete_copen = 1
-let g:clang_periodic_quickfix = 0
-let g:clang_hl_errors = 0
-let g:clang_close_preview = 1
-let g:clang_user_options = '-std=c++11'
-let g:clang_sort_algo = "alpha"
-let g:clang_complete_macros = 1
-let g:clang_complete_patterns = 1
-let g:clang_jumpto_declaration_key = "<C-]>"
-let g:clang_jumpto_declaration_in_preview_key = "<C-W>]"
-let g:clang_jumpto_back_key = "<C-T>"
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+"let g:clang_auto_select = 1
+"let g:clang_complete_copen = 1
+"let g:clang_periodic_quickfix = 0
+"let g:clang_hl_errors = 0
+"let g:clang_close_preview = 1
+"let g:clang_user_options = '-std=c++11'
+"let g:clang_sort_algo = "alpha"
+"let g:clang_complete_macros = 1
+"let g:clang_complete_patterns = 1
+"let g:clang_jumpto_declaration_key = "<C-]>"
+"let g:clang_jumpto_declaration_in_preview_key = "<C-W>]"
+"let g:clang_jumpto_back_key = "<C-T>"
+"autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 "" **************************************************************
 
 "" ****** vim-airline configuration ******
@@ -368,50 +366,49 @@ let g:syntastic_auto_jump = 0
 "" *********************************************************************************
 
 "" YouCompleteMe Options
-"nmap	<leader>f	:YcmForceCompileAndDiagnostics<CR>
-"nmap	<leader>s	:YcmShowDetailedDiagnostic<CR>
-"nmap	<leader>t	:YcmCompleter GetType<CR>
-"nmap	<leader>p	:YcmCompleter GetParent<CR>
-"nmap	<leader>r	:YcmRestartServer<CR>
-"nmap	<leader><Up>	:YcmCompleter GoToDeclaration<CR>
-"nmap	<leader><Down>	:YcmCompleter GoToDefinition<CR>
-"let g:ycm_min_num_of_chars_for_completion = 2
-"let g:ycm_auto_trigger = 1
-"let g:ycm_min_num_identifier_candidate_chars = 0
-"let g:ycm_show_diagnostics_ui = 0
-"let g:ycm_enable_diagnostic_signs = 0
-"let g:ycm_enable_diagnostic_highlighting = 0
-"let g:ycm_echo_current_diagnostic = 0
-"let g:ycm_always_populate_location_list = 0
+nmap	<leader>f	:YcmForceCompileAndDiagnostics<CR>
+nmap	<leader>s	:YcmShowDetailedDiagnostic<CR>
+nmap	<leader>t	:YcmCompleter GetType<CR>
+nmap	<leader>p	:YcmCompleter GetParent<CR>
+nmap	<leader>r	:YcmRestartServer<CR>
+nmap	<leader><Up>	:YcmCompleter GoToDeclaration<CR>
+nmap	<leader><Down>	:YcmCompleter GoToDefinition<CR>
+let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_auto_trigger = 1
+let g:ycm_min_num_identifier_candidate_chars = 0
+let g:ycm_show_diagnostics_ui = 0
+let g:ycm_enable_diagnostic_signs = 0
+let g:ycm_enable_diagnostic_highlighting = 0
+let g:ycm_echo_current_diagnostic = 0
+let g:ycm_always_populate_location_list = 0
 
-"let g:ycm_allow_changing_updatetime = 0
-"let g:ycm_complete_in_comments = 1
-"let g:ycm_complete_in_string = 1
-"let g:ycm_collect_identifiers_from_comments_and_strings = 1
-"let g:ycm_collect_identifiers_from_tags_files = 0
-"let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_allow_changing_updatetime = 0
+let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_string = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_collect_identifiers_from_tags_files = 0
+let g:ycm_seed_identifiers_with_syntax = 1
 
-"let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
+let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
 "let g:ycm_server_use_vim_stdout = 1
 "let g:ycm_server_log_level = 'debug'
-"let g:ycm_auto_start_csharp_server = 0
-"let g:ycm_auto_stop_csharp_server = 0
+let g:ycm_auto_start_csharp_server = 0
+let g:ycm_auto_stop_csharp_server = 0
 "let g:ycm_csharp_server_port = 1
 
-"let g:ycm_add_preview_to_completeopt = 1
-"let g:ycm_autoclose_preview_window_after_completion = 1
-"let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
-"let g:ycm_key_list_select_completion = []
-"let g:ycm_key_list_previous_completion = []
-"let g:ycm_key_invoke_completion = '<C-Space>'
-"let g:ycm_key_detailed_diagnostics = '<leader>d'
-"let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-"let g:ycm_confirm_extra_conf = 0
-"let g:ycm_filepath_completion_use_working_dir = 1
-"let g:ycm_cache_omnifunc = 0
-"let g:ycm_use_ultisnips_completer = 1
-"let g:ycm_disable_for_files_larger_than_kb = 4096
-""autocmd BufWritePre * :YcmRestartServer
-"inoremap <C-D> <C-X><C-O><C-P>
-""autocmd CursorMovedI * call feedkeys("\<C-D>")
+let g:ycm_key_list_select_completion = []
+let g:ycm_key_list_previous_completion = []
+let g:ycm_key_invoke_completion = '<C-Space>'
+let g:ycm_key_detailed_diagnostics = '<leader>d'
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_filepath_completion_use_working_dir = 1
+let g:ycm_cache_omnifunc = 0
+let g:ycm_use_ultisnips_completer = 1
+let g:ycm_disable_for_files_larger_than_kb = 4096
+"autocmd BufWritePre * :YcmRestartServer
+autocmd CursorMovedI c,cpp,java,python,ruby,eruby,html,css,php,javascript,xml call feedkeys("\<C-D>")
