@@ -175,7 +175,7 @@ set background=dark
 syntax enable
 syntax on
 set t_Co=256
-colorscheme kiddo
+colorscheme malokai
 
 function! Test_php() range
 	if &ft == "php"
