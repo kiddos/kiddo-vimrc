@@ -1,0 +1,46 @@
+""
+""	Author: Joseph Yu
+""	Last Modified: 2015/8/20
+""	Android Studio ideavimrc
+""
+
+"" coding settings
+set autoindent
+set nosmartindent
+
+"" editing settings
+set altkeymap
+set ambiwidth=double
+set backspace=indent,eol,start
+set clipboard=unnamedplus
+set cursorcolumn
+set cursorline
+set encoding=utf-8
+set ignorecase
+set incsearch
+set linebreak
+set shiftround
+set smartcase
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set noexpandtab
+set timeoutlen=1000 ttimeoutlen=0
+set whichwrap+=<,>,b,s,[,],~
+set wrap
+
+"" window settings
+set relativenumber
+set number
+set showfulltag
+set showcmd
+set noshowmode
+set showtabline=2
+set scroll=2
+set splitright
+set tabpagemax=20
+set title
+set warn
+
+"" Mappings
+nmap ; $a;

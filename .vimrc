@@ -3,13 +3,10 @@
 ""	Last Modified: 2015/7/05
 ""
 
-"" coding settings
-set autoindent
-set nosmartindent
-set complete=.,w,b,u,U,t,k
-set completeopt+=menuone,menu,preview
+"" basic settings
 filetype plugin on
-set number
+
+"" ctags settings
 set showfulltag
 autocmd FileType c,cpp set tags+=~/.vim/tags/cpptags
 autocmd FileType c,cpp set tags+=~/.vim/tags/gl
@@ -17,6 +14,7 @@ autocmd FileType c,cpp set tags+=~/.vim/tags/glut
 autocmd FileType c,cpp set tags+=~/.vim/tags/glew
 autocmd FileType c,cpp set tags+=~/.vim/tags/opencvtag
 
+"" omni completeion
 autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd FileType cpp setl ofu=ccomplete#Complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -26,6 +24,13 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby,eruby setl ofu=rubycomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+
+"" coding settings
+set autoindent
+set nosmartindent
+set complete=.,w,b,u,U,t,k
+set completeopt+=menuone,menu,preview
+set number
 
 "" buffer settings
 set autoread
@@ -37,6 +42,7 @@ set hidden
 set icon
 set iconstring=vim
 set nowritebackup
+autocmd BufRead,BufNewFile *.m setfiletype objc
 
 "" editing settings
 set altkeymap
@@ -152,7 +158,6 @@ inoremap	<C-W>	<Esc><C-Y>a
 autocmd		FileType	c		nnoremap ; $a;
 autocmd		FileType	cpp		nnoremap ; $a;
 autocmd		FileType	java	nnoremap ; $a;
-autocmd		FileType	python	nnoremap ; $a;
 autocmd		FileType	php		nnoremap ; $a;
 
 "" jump window
@@ -160,9 +165,11 @@ inoremap	<C-]>	<Esc><C-W><C-]>
 nnoremap	<C-]>	<C-W><C-]>
 
 "" Omni Complete
-inoremap <expr>	<CR>		pumvisible() ? "\<C-Y>" : "\<CR>"
+inoremap <expr>	<CR>		pumvisible() ? "\<C-N><C-Y>" : "\<CR>"
 inoremap <expr>	<Down>		pumvisible() ? "\<C-N>" : "\<Down>"
 inoremap <expr>	<Up>		pumvisible() ? "\<C-P>" : "\<Up>"
+inoremap <expr>	<C-J>		pumvisible() ? "\<C-N>" : "\<Esc><C-W><C-J>"
+inoremap <expr>	<C-K>		pumvisible() ? "\<C-P>" : "\<Esc><C-W><C-K>"
 inoremap <expr> <PageDown>	pumvisible() ? "\<PageDown>\<C-P>\<C-N>" : "\<PageDown>"
 inoremap <expr> <PageUp>	pumvisible() ? "\<PageUp>\<C-P>\<C-N>" : "\<PageUp>"
 inoremap <C-D>	<C-X><C-O><C-P>
@@ -351,10 +358,16 @@ set statusline+=%*
 highlight	SyntasticErrorSign	cterm=BOLD	ctermfg=255	ctermbg=9	guifg=white	guibg=red
 "highlight	SyntasticErrorLine	cterm=BOLD	ctermfg=255	ctermbg=9	guibg=#2f0000
 
-let b:syntastic_c_cflags = "-Wall `Magick++-config --cflags --libs`"
-let b:syntastic_cpp_cflags = "-Wall `Magick++-config --cflags --libs`"
+let g:syntastic_c_check_header = 1
+let g:syntastic_cpp_check_header = 1
+let g:syntastic_c_compiler_options = "-Wall -fopenmp -fmax-errors=10"
+let g:syntastic_cpp_compiler_options = "-Wall -fopenmp"
 let g:syntastic_c_include_dirs = ['/usr/include/ImageMagick/']
 let g:syntastic_cpp_include_dirs = ['/usr/include/ImageMagick/']
+let g:syntastic_objc_compiler_options = "-Wall `gnustep-config --objc-flags` `gnustep-config --objc-libs` -lgnustep-base"
+let g:syntastic_python_python_exec = '/usr/bin/python'
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_args='--ignore=E501,E225,W391'
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
@@ -362,6 +375,7 @@ let g:syntastic_echo_current_error = 1
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 6
 let g:syntastic_auto_jump = 0
 "" *********************************************************************************
 
@@ -412,3 +426,4 @@ let g:ycm_use_ultisnips_completer = 1
 let g:ycm_disable_for_files_larger_than_kb = 4096
 "autocmd BufWritePre * :YcmRestartServer
 autocmd CursorMovedI c,cpp,java,python,ruby,eruby,html,css,php,javascript,xml call feedkeys("\<C-D>")
+
