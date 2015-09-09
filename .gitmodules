@@ -57,7 +57,7 @@
 	url = https://github.com/tpope/vim-surround.git
 [submodule ".vim/bundle/a.vim"]
 	path = .vim/bundle/a.vim
-	url = https://github.com/vim-scripts/a.vim.git
+	url = https://github.com/kiddos/a.vim.git
 [submodule ".vim/bundle/snipMate"]
 	path = .vim/bundle/snipMate
 	url = https://github.com/vim-scripts/snipMate.git
