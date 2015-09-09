@@ -29,8 +29,9 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 set autoindent
 set nosmartindent
 set complete=.,w,b,u,U,t,k
-set completeopt+=menuone,menu,preview
+set completeopt=menu
 set number
+
 
 "" buffer settings
 set autoread
@@ -203,7 +204,7 @@ function! Test_php() range
 	endif
 endfunction
 
-nmap	<silent><F1>	:set columns=999<CR>:set lines=46<CR>
+nmap	<silent><F1>	:set columns=999<CR>:set lines=66<CR>
 nmap	<silent><F2>	:NERDTreeToggle .<CR>
 nmap	<F3>	:TagbarToggle<CR>
 nmap	<F4>	:GitGutterToggle<CR>
@@ -215,15 +216,13 @@ nmap	<leader>"			:Tabularize /"[^"]*"<CR>
 nmap	<leader>(			:Tabularize /(.*)<CR>
 nmap	<leader>=			:Tabularize /= <CR>
 nmap	<leader>a			:AV<CR>
-nmap	<leader>c			cst
-
-imap	<C-F>	<C-R><Tab>
 
 autocmd VimEnter * silent! :SyntasticToggleMode
 autocmd VimEnter * silent! :GitGutterDisable
 autocmd	BufWritePost * silent! :SyntasticCheck
 
 
+ ino <c-f> <c-r>=TriggerSnippet()<cr>
 "" ****** autocomplpop settings ******
 "let g:acp_completeOption = '.,w,b,t'
 "let g:acp_completeoptPreview = 1
@@ -350,6 +349,9 @@ let g:airline_symbols.whitespace = '⌨  '
 let g:AutoClosePairs_add = "[] '' "
 let g:AutoClosePreserveDotReg = 0
 
+"" snipMate settings
+let g:snips_author = 'Joseph Yu'
+
 "" ****** syntastic settings ******
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -400,7 +402,7 @@ let g:ycm_allow_changing_updatetime = 0
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_string = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_collect_identifiers_from_tags_files = 0
+let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 
 let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
@@ -408,10 +410,10 @@ let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
 "let g:ycm_server_log_level = 'debug'
 let g:ycm_auto_start_csharp_server = 0
 let g:ycm_auto_stop_csharp_server = 0
-"let g:ycm_csharp_server_port = 1
+let g:ycm_csharp_server_port = 1
 
 let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_completion = 0
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
 let g:ycm_key_list_select_completion = []
@@ -423,7 +425,8 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_filepath_completion_use_working_dir = 1
 let g:ycm_cache_omnifunc = 0
 let g:ycm_use_ultisnips_completer = 1
-let g:ycm_disable_for_files_larger_than_kb = 4096
-"autocmd BufWritePre * :YcmRestartServer
-autocmd CursorMovedI c,cpp,java,python,ruby,eruby,html,css,php,javascript,xml call feedkeys("\<C-X><C-O><C-P>")
+let g:ycm_disable_for_files_larger_than_kb = 8192
+"autocmd CursorMovedI c,cpp,java,python,ruby,eruby,html,css,php,javascript,xml call feedkeys("\<C-X><C-O><C-P>")
+"autocmd CursorMovedI *.c call feedkeys("\<C-D>")
+"autocmd CursorMovedI *.cpp call feedkeys("\<C-D>")
 

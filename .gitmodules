@@ -7,9 +7,6 @@
 [submodule ".vim/bundle/kiddo"]
 	path = .vim/bundle/kiddo
 	url = https://github.com/kiddos/kiddo.git
-[submodule ".vim/bundle/jedi"]
-	path = .vim/bundle/jedi
-	url = https://github.com/davidhalter/jedi.git
 [submodule ".vim/bundle/nerdcommenter"]
 	path = .vim/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
