@@ -3,6 +3,7 @@
 Android
 .AndroidStudio1.3
 Assembly
+.audacity-data
 backup
 .bash_history
 .bash_logout
@@ -63,6 +64,7 @@ Public
 .pulse-cookie
 Python
 .python_history
+recordings
 .rnd
 Ruby
 .steam
@@ -83,3 +85,4 @@ VirtualBox VMs
 .xinputrc
 .xsession-errors
 .xsession-errors.old
+.ycm_extra_conf.pyc

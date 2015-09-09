@@ -367,7 +367,7 @@ let g:syntastic_cpp_include_dirs = ['/usr/include/ImageMagick/']
 let g:syntastic_objc_compiler_options = "-Wall `gnustep-config --objc-flags` `gnustep-config --objc-libs` -lgnustep-base"
 let g:syntastic_python_python_exec = '/usr/bin/python'
 let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_args='--ignore=E501,E225,W391'
+let g:syntastic_python_flake8_args='--ignore=E501,E225,E302,E303,W391'
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
@@ -425,5 +425,5 @@ let g:ycm_cache_omnifunc = 0
 let g:ycm_use_ultisnips_completer = 1
 let g:ycm_disable_for_files_larger_than_kb = 4096
 "autocmd BufWritePre * :YcmRestartServer
-autocmd CursorMovedI c,cpp,java,python,ruby,eruby,html,css,php,javascript,xml call feedkeys("\<C-D>")
+autocmd CursorMovedI c,cpp,java,python,ruby,eruby,html,css,php,javascript,xml call feedkeys("\<C-X><C-O><C-P>")
 
