@@ -366,7 +366,15 @@ let g:syntastic_c_compiler_options = "-Wall -fopenmp -fmax-errors=10"
 let g:syntastic_cpp_compiler_options = "-Wall -fopenmp"
 let g:syntastic_c_include_dirs = ['/usr/include/ImageMagick/']
 let g:syntastic_cpp_include_dirs = ['/usr/include/ImageMagick/']
-let g:syntastic_objc_compiler_options = "-Wall `gnustep-config --objc-flags` `gnustep-config --objc-libs` -lgnustep-base"
+let g:syntastic_objc_compiler_options = "-Wall `gnustep-config --objc-flags` `gnustep-config --objc-libs`"
+"let g:syntastic_objc_compiler = "clang"
+"let g:syntastic_objc_compiler_options += "-DGNU_GUI_LIBRARY=1 -DGNU_RUNTIME=1 "
+"let g:syntastic_objc_compiler_options += "-DGNUSTEP_BASE_LIBRARY=1 -fno-strict-aliasing "
+"let g:syntastic_objc_compiler_options += "-fexceptions -fobjc-exceptions "
+"let g:syntastic_objc_compiler_options += "-D_NATIVE_OBJC_EXCEPTIONS -pthread -fPIC "
+"let g:syntastic_objc_compiler_options += "-Wall -DGSWARN -DGSDIAGNOSE -Wno-import -g -O2 "
+"let g:syntastic_objc_compiler_options += "-fgnu-runtime -fconstant-string-class=NSConstantString"
+"let g:syntastic_objc_include_dirs = ['/usr/include/GNUstep']
 let g:syntastic_python_python_exec = '/usr/bin/python'
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args='--ignore=E501,E225,E302,E303,W391'
