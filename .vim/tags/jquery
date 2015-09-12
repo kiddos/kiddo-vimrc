@@ -1,0 +1,154 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Animation	jquery-1.11.3.js	/^function Animation( elem, properties, options ) {$/;"	kind:f
+Tween	jquery-1.11.3.js	/^function Tween( elem, options, prop, end, easing ) {$/;"	kind:f
+Tween	jquery-1.11.3.js	/^jQuery.Tween = Tween;$/;"	kind:c
+_default	jquery-1.11.3.js	/^	fast: 200,$/;"	kind:p	class:jQuery.fx.speeds
+_default	jquery-1.11.3.js	/^Tween.propHooks = {$/;"	kind:p	class:Tween.propHooks
+_jQuery	jquery-1.11.3.js	/^var$/;"	kind:v
+_load	jquery-1.11.3.js	/^var _load = jQuery.fn.load;$/;"	kind:v
+actualDisplay	jquery-1.11.3.js	/^function actualDisplay( name, doc ) {$/;"	kind:f
+add	jquery-1.11.3.js	/^		self = {$/;"	kind:m
+addGetHookIf	jquery-1.11.3.js	/^function addGetHookIf( conditionFn, hookFn ) {$/;"	kind:f
+addToPrefiltersOrTransports	jquery-1.11.3.js	/^function addToPrefiltersOrTransports( structure ) {$/;"	kind:f
+ajaxConvert	jquery-1.11.3.js	/^function ajaxConvert( s, response, jqXHR, isSuccess ) {$/;"	kind:f
+ajaxExtend	jquery-1.11.3.js	/^function ajaxExtend( target, src ) {$/;"	kind:f
+ajaxHandleResponses	jquery-1.11.3.js	/^function ajaxHandleResponses( s, jqXHR, responses ) {$/;"	kind:f
+augmentWidthOrHeight	jquery-1.11.3.js	/^function augmentWidthOrHeight( elem, name, extra, isBorderBox, styles ) {$/;"	kind:f
+buildParams	jquery-1.11.3.js	/^function buildParams( prefix, obj, traditional, add ) {$/;"	kind:f
+cloneCopyEvent	jquery-1.11.3.js	/^function cloneCopyEvent( src, dest ) {$/;"	kind:f
+completed	jquery-1.11.3.js	/^function completed() {$/;"	kind:f
+computeStyleTests	jquery-1.11.3.js	/^	function computeStyleTests() {$/;"	kind:f
+constructor	jquery-1.11.3.js	/^Tween.prototype = {$/;"	kind:p	class:Tween
+createActiveXHR	jquery-1.11.3.js	/^function createActiveXHR() {$/;"	kind:f
+createFxNow	jquery-1.11.3.js	/^function createFxNow() {$/;"	kind:f
+createOptions	jquery-1.11.3.js	/^function createOptions( options ) {$/;"	kind:f
+createSafeFragment	jquery-1.11.3.js	/^function createSafeFragment( document ) {$/;"	kind:f
+createStandardXHR	jquery-1.11.3.js	/^function createStandardXHR() {$/;"	kind:f
+createTween	jquery-1.11.3.js	/^function createTween( value, prop, animation ) {$/;"	kind:f
+cssExpand	jquery-1.11.3.js	/^var cssExpand = [ "Top", "Right", "Bottom", "Left" ];$/;"	kind:v
+cur	jquery-1.11.3.js	/^	},$/;"	kind:m	class:Tween
+curCSS	jquery-1.11.3.js	/^	};$/;"	kind:f
+dataAttr	jquery-1.11.3.js	/^function dataAttr( elem, key, data ) {$/;"	kind:f
+dataType	jquery-1.11.3.js	/^		var dataType,$/;"	kind:v
+defaultDisplay	jquery-1.11.3.js	/^function defaultDisplay( nodeName ) {$/;"	kind:f
+defaultPrefilter	jquery-1.11.3.js	/^function defaultPrefilter( elem, props, opts ) {$/;"	kind:f
+detach	jquery-1.11.3.js	/^function detach() {$/;"	kind:f
+disableScript	jquery-1.11.3.js	/^function disableScript( elem ) {$/;"	kind:f
+docElem	jquery-1.11.3.js	/^var docElem = window.document.documentElement;$/;"	kind:v
+fast	jquery-1.11.3.js	/^	slow: 600,$/;"	kind:p	class:jQuery.fx.speeds
+fixCloneNodeIssues	jquery-1.11.3.js	/^function fixCloneNodeIssues( src, dest ) {$/;"	kind:f
+fixDefaultChecked	jquery-1.11.3.js	/^function fixDefaultChecked( elem ) {$/;"	kind:f
+fn	jquery-1.11.3.js	/^				bulk = fn;$/;"	kind:f
+fontWeight	jquery-1.11.3.js	/^		letterSpacing: "0",$/;"	kind:p
+genFx	jquery-1.11.3.js	/^function genFx( type, includeWidth ) {$/;"	kind:f
+get	jquery-1.11.3.js	/^	jQuery.attrHooks.style = {$/;"	kind:m	class:jQuery.attrHooks.style
+get	jquery-1.11.3.js	/^	jQuery.cssHooks.opacity = {$/;"	kind:m	class:jQuery.cssHooks.opacity
+get	jquery-1.11.3.js	/^	jQuery.propHooks.selected = {$/;"	kind:m	class:jQuery.propHooks.selected
+get	jquery-1.11.3.js	/^	jQuery.valHooks.button = {$/;"	kind:m	class:jQuery.valHooks.button
+getAll	jquery-1.11.3.js	/^function getAll( context, tag ) {$/;"	kind:f
+getStyles	jquery-1.11.3.js	/^if ( window.getComputedStyle ) {$/;"	kind:f
+getStyles	jquery-1.11.3.js	/^var getStyles, curCSS,$/;"	kind:v
+getWidthOrHeight	jquery-1.11.3.js	/^function getWidthOrHeight( elem, name, extra ) {$/;"	kind:f
+getWindow	jquery-1.11.3.js	/^function getWindow( elem ) {$/;"	kind:f
+global	jquery-1.11.3.js	/^jQuery.event = {$/;"	kind:p	class:jQuery.event
+handle	jquery-1.11.3.js	/^		},$/;"	kind:m	class:jQuery.event.special.change
+height	jquery-1.11.3.js	/^		attrs = { height: type },$/;"	kind:p	class:genFx.which
+hooks.empty.fire	jquery-1.11.3.js	/^			oldfire = hooks.empty.fire;$/;"	kind:f
+i	jquery-1.11.3.js	/^		var i, prop, copy,$/;"	kind:v
+i	jquery-1.11.3.js	/^var i;$/;"	kind:v
+iframe	jquery-1.11.3.js	/^var iframe,$/;"	kind:v
+init	jquery-1.11.3.js	/^	constructor: Tween,$/;"	kind:m	class:Tween
+init	jquery-1.11.3.js	/^	return new Tween.prototype.init( elem, options, prop, end, easing );$/;"	kind:m	class:return
+init	jquery-1.11.3.js	/^	};$/;"	kind:c
+init	jquery-1.11.3.js	/^Tween.prototype.init.prototype = Tween.prototype;$/;"	kind:m	class:Tween
+inspect	jquery-1.11.3.js	/^	function inspect( dataType ) {$/;"	kind:f	function:inspectPrefiltersOrTransports
+inspectPrefiltersOrTransports	jquery-1.11.3.js	/^function inspectPrefiltersOrTransports( structure, options, originalOptions, jqXHR ) {$/;"	kind:f
+internalData	jquery-1.11.3.js	/^function internalData( elem, name, data, pvt \/* Internal Use Only *\/ ) {$/;"	kind:f
+internalRemoveData	jquery-1.11.3.js	/^function internalRemoveData( elem, name, pvt ) {$/;"	kind:f
+isArraylike	jquery-1.11.3.js	/^function isArraylike( obj ) {$/;"	kind:f
+isDefaultPrevented	jquery-1.11.3.js	/^jQuery.Event.prototype = {$/;"	kind:p	class:jQuery.Event
+isEmptyDataObject	jquery-1.11.3.js	/^function isEmptyDataObject( obj ) {$/;"	kind:f
+isHidden	jquery-1.11.3.js	/^var isHidden = function( elem, el ) {$/;"	kind:f
+isImmediatePropagationStopped	jquery-1.11.3.js	/^	isPropagationStopped: returnFalse,$/;"	kind:p	class:jQuery.Event
+isPropagationStopped	jquery-1.11.3.js	/^	isDefaultPrevented: returnFalse,$/;"	kind:p	class:jQuery.Event
+jQuery.Callbacks	jquery-1.11.3.js	/^}$/;"	kind:f
+jQuery.Event	jquery-1.11.3.js	/^	};$/;"	kind:c
+jQuery._evalUrl	jquery-1.11.3.js	/^});$/;"	kind:f
+jQuery.acceptData	jquery-1.11.3.js	/^})();$/;"	kind:f
+jQuery.expr.filters.animated	jquery-1.11.3.js	/^});$/;"	kind:f
+jQuery.expr.filters.hidden	jquery-1.11.3.js	/^});$/;"	kind:f
+jQuery.expr.filters.visible	jquery-1.11.3.js	/^};$/;"	kind:f
+jQuery.filter	jquery-1.11.3.js	/^}$/;"	kind:f
+jQuery.fn.delay	jquery-1.11.3.js	/^};$/;"	kind:f
+jQuery.fn.load	jquery-1.11.3.js	/^var _load = jQuery.fn.load;$/;"	kind:f
+jQuery.fn.ready	jquery-1.11.3.js	/^var readyList;$/;"	kind:f
+jQuery.fn.size	jquery-1.11.3.js	/^});$/;"	kind:f
+jQuery.fx.start	jquery-1.11.3.js	/^jQuery.fx.interval = 13;$/;"	kind:f
+jQuery.fx.stop	jquery-1.11.3.js	/^};$/;"	kind:f
+jQuery.fx.tick	jquery-1.11.3.js	/^jQuery.timers = [];$/;"	kind:f
+jQuery.fx.timer	jquery-1.11.3.js	/^};$/;"	kind:f
+jQuery.noConflict	jquery-1.11.3.js	/^	_$ = window.$;$/;"	kind:f
+jQuery.param	jquery-1.11.3.js	/^}$/;"	kind:f
+jQuery.parseHTML	jquery-1.11.3.js	/^});$/;"	kind:f
+jQuery.parseJSON	jquery-1.11.3.js	/^var rvalidtokens = \/(,)|(\\[|{)|(}|])|"(?:[^"\\\\\\r\\n]|\\\\["\\\\\\\/bfnrt]|\\\\u[\\da-fA-F]{4})*"\\s*:?|true|false|null|-?(?!0\\d)\\d+(?:\\.\\d+|)(?:[eE][+-]?\\d+|)\/g;$/;"	kind:f
+jQuery.parseXML	jquery-1.11.3.js	/^};$/;"	kind:f
+jQuery.ready.promise	jquery-1.11.3.js	/^}$/;"	kind:f
+jQuery.speed	jquery-1.11.3.js	/^});$/;"	kind:f
+jQuery.swap	jquery-1.11.3.js	/^})();$/;"	kind:f
+letterSpacing	jquery-1.11.3.js	/^	cssNormalTransform = {$/;"	kind:p
+linear	jquery-1.11.3.js	/^jQuery.easing = {$/;"	kind:m	class:jQuery.easing
+manipulationTarget	jquery-1.11.3.js	/^function manipulationTarget( elem, content ) {$/;"	kind:f
+nodeHook	jquery-1.11.3.js	/^var nodeHook, boolHook,$/;"	kind:v
+nodeNames	jquery-1.11.3.js	/^var nodeNames = "abbr|article|aside|audio|bdi|canvas|data|datalist|details|figcaption|figure|footer|" +$/;"	kind:v
+nonce	jquery-1.11.3.js	/^var nonce = jQuery.now();$/;"	kind:v
+oldCallbacks	jquery-1.11.3.js	/^var oldCallbacks = [],$/;"	kind:v
+opt.complete	jquery-1.11.3.js	/^	opt.old = opt.complete;$/;"	kind:f
+optionsCache	jquery-1.11.3.js	/^var optionsCache = {};$/;"	kind:v
+postDispatch	jquery-1.11.3.js	/^		},$/;"	kind:m	class:jQuery.event.special.submit
+preventDefault	jquery-1.11.3.js	/^	isImmediatePropagationStopped: returnFalse,$/;"	kind:m	class:jQuery.Event
+propFilter	jquery-1.11.3.js	/^function propFilter( props, specialEasing ) {$/;"	kind:f
+r20	jquery-1.11.3.js	/^var r20 = \/%20\/g,$/;"	kind:v
+rbrace	jquery-1.11.3.js	/^var rbrace = \/^(?:\\{[\\w\\W]*\\}|\\[[\\w\\W]*\\])$\/,$/;"	kind:v
+rclass	jquery-1.11.3.js	/^var rclass = \/[\\t\\r\\n\\f]\/g;$/;"	kind:v
+readyList	jquery-1.11.3.js	/^var readyList;$/;"	kind:v
+restoreScript	jquery-1.11.3.js	/^function restoreScript( elem ) {$/;"	kind:f
+return	jquery-1.11.3.js	/^function Tween( elem, options, prop, end, easing ) {$/;"	kind:c
+returnFalse	jquery-1.11.3.js	/^function returnFalse() {$/;"	kind:f
+returnTrue	jquery-1.11.3.js	/^function returnTrue() {$/;"	kind:f
+rfocusable	jquery-1.11.3.js	/^var rfocusable = \/^(?:input|select|textarea|button|object)$\/i,$/;"	kind:v
+rformElems	jquery-1.11.3.js	/^var rformElems = \/^(?:input|select|textarea)$\/i,$/;"	kind:v
+risSimple	jquery-1.11.3.js	/^var risSimple = \/^.[^:#\\[\\.,]*$\/;$/;"	kind:v
+rneedsContext	jquery-1.11.3.js	/^var rneedsContext = jQuery.expr.match.needsContext;$/;"	kind:v
+rreturn	jquery-1.11.3.js	/^var rreturn = \/\\r\/g;$/;"	kind:v
+run	jquery-1.11.3.js	/^	},$/;"	kind:m	class:Tween
+rvalidtokens	jquery-1.11.3.js	/^var rvalidtokens = \/(,)|(\\[|{)|(}|])|"(?:[^"\\\\\\r\\n]|\\\\["\\\\\\\/bfnrt]|\\\\u[\\da-fA-F]{4})*"\\s*:?|true|false|null|-?(?!0\\d)\\d+(?:\\.\\d+|)(?:[eE][+-]?\\d+|)\/g;$/;"	kind:v
+safeActiveElement	jquery-1.11.3.js	/^function safeActiveElement() {$/;"	kind:f
+set	jquery-1.11.3.js	/^		},$/;"	kind:m	class:jQuery.attrHooks.style
+set	jquery-1.11.3.js	/^		},$/;"	kind:m	class:jQuery.cssHooks.opacity
+set	jquery-1.11.3.js	/^		},$/;"	kind:p	class:jQuery.valHooks.button
+set	jquery-1.11.3.js	/^	jQuery.attrHooks.contenteditable = {$/;"	kind:m	class:jQuery.attrHooks.contenteditable
+set	jquery-1.11.3.js	/^	jQuery.attrHooks.value = {$/;"	kind:m	class:jQuery.attrHooks.value
+set	jquery-1.11.3.js	/^	nodeHook = {$/;"	kind:m	class:nodeHook
+set	jquery-1.11.3.js	/^boolHook = {$/;"	kind:m	class:boolHook
+setGlobalEval	jquery-1.11.3.js	/^function setGlobalEval( elems, refElements ) {$/;"	kind:f
+setOffset	jquery-1.11.3.js	/^jQuery.offset = {$/;"	kind:m	class:jQuery.offset
+setPositiveNumber	jquery-1.11.3.js	/^function setPositiveNumber( elem, value, subtract ) {$/;"	kind:f
+setup	jquery-1.11.3.js	/^	jQuery.event.special.change = {$/;"	kind:m	class:jQuery.event.special.change
+setup	jquery-1.11.3.js	/^	jQuery.event.special.submit = {$/;"	kind:m	class:jQuery.event.special.submit
+showHide	jquery-1.11.3.js	/^function showHide( elements, show ) {$/;"	kind:f
+sibling	jquery-1.11.3.js	/^function sibling( cur, dir ) {$/;"	kind:f
+slow	jquery-1.11.3.js	/^jQuery.fx.speeds = {$/;"	kind:p	class:jQuery.fx.speeds
+stopImmediatePropagation	jquery-1.11.3.js	/^	},$/;"	kind:m	class:jQuery.Event
+stopPropagation	jquery-1.11.3.js	/^	},$/;"	kind:m	class:jQuery.Event
+strundefined	jquery-1.11.3.js	/^var strundefined = typeof undefined;$/;"	kind:v
+support.shrinkWrapBlocks	jquery-1.11.3.js	/^	var shrinkWrapBlocksVal;$/;"	kind:f
+swing	jquery-1.11.3.js	/^	},$/;"	kind:m	class:jQuery.easing
+teardown	jquery-1.11.3.js	/^		},$/;"	kind:m	class:jQuery.event.special.change
+teardown	jquery-1.11.3.js	/^		},$/;"	kind:m	class:jQuery.event.special.submit
+vendorPropName	jquery-1.11.3.js	/^function vendorPropName( style, name ) {$/;"	kind:f
+winnow	jquery-1.11.3.js	/^function winnow( elements, qualifier, not ) {$/;"	kind:f

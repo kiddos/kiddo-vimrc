@@ -8,11 +8,12 @@ filetype plugin on
 
 "" ctags settings
 set showfulltag
-autocmd FileType c,cpp set tags+=~/.vim/tags/cpptags
+autocmd FileType c,cpp set tags+=~/.vim/tags/cpp
 autocmd FileType c,cpp set tags+=~/.vim/tags/gl
 autocmd FileType c,cpp set tags+=~/.vim/tags/glut
 autocmd FileType c,cpp set tags+=~/.vim/tags/glew
 autocmd FileType c,cpp set tags+=~/.vim/tags/opencvtag
+autocmd FileType html,javascript set tags+=~/.vim/tags/jquery
 
 "" omni completeion
 autocmd FileType c set omnifunc=ccomplete#Complete
