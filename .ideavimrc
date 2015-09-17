@@ -13,9 +13,7 @@ set altkeymap
 set ambiwidth=double
 set backspace=indent,eol,start
 set clipboard=unnamedplus
-set cursorcolumn
 set cursorline
-set encoding=utf-8
 set ignorecase
 set incsearch
 set linebreak
@@ -25,7 +23,6 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set noexpandtab
-set timeoutlen=1000 ttimeoutlen=0
 set whichwrap+=<,>,b,s,[,],~
 set wrap
 

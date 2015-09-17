@@ -14,6 +14,7 @@ autocmd FileType c,cpp set tags+=~/.vim/tags/glut
 autocmd FileType c,cpp set tags+=~/.vim/tags/glew
 autocmd FileType c,cpp set tags+=~/.vim/tags/opencvtag
 autocmd FileType html,javascript set tags+=~/.vim/tags/jquery
+autocmd FileType html,javascript set tags+=~/.vim/tags/nodejs
 
 "" omni completeion
 autocmd FileType c set omnifunc=ccomplete#Complete

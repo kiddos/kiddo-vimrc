@@ -1,0 +1,8 @@
+2015-09-16 11:34:26,175 [      0]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE STARTED ------------------------------------------------------ 
+2015-09-16 11:34:26,182 [      7]   INFO -        #com.intellij.idea.Main - IDE: WebStorm (build #WS-141.1550, 12 Jun 2015 00:00) 
+2015-09-16 11:34:26,182 [      7]   INFO -        #com.intellij.idea.Main - OS: Linux (4.0.0, amd64) 
+2015-09-16 11:34:26,182 [      7]   INFO -        #com.intellij.idea.Main - JRE: 1.8.0_40-b26 (Oracle Corporation) 
+2015-09-16 11:34:26,182 [      7]   INFO -        #com.intellij.idea.Main - JVM: 25.40-b25 (Java HotSpot(TM) 64-Bit Server VM) 
+2015-09-16 11:34:26,184 [      9]   INFO -        #com.intellij.idea.Main - JVM Args: -Xbootclasspath/a:./../lib/boot.jar -Xms128m -Xmx750m -XX:MaxPermSize=350m -XX:ReservedCodeCacheSize=225m -XX:+UseConcMarkSweepGC -XX:SoftRefLRUPolicyMSPerMB=50 -ea -Dsun.io.useCanonCaches=false -Djava.net.preferIPv4Stack=true -Dawt.useSystemAAFontSettings=lcd -Djb.vmOptionsFile=./webstorm64.vmoptions -XX:ErrorFile=/home/joseph/java_error_in_WEBIDE_%p.log -Djb.restart.code=88 -Didea.paths.selector=WebStorm10 -Didea.platform.prefix=WebStorm -Didea.no.jre.check=true 
+2015-09-16 11:34:26,224 [     49]   INFO -        #com.intellij.idea.Main - JNA library loaded (64-bit) in 40 ms 
+2015-09-16 11:34:34,703 [   8528]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE SHUTDOWN ------------------------------------------------------ 
