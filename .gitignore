@@ -54,6 +54,7 @@ Music
 .nv
 .nviminfo
 .nvimlog
+.nvimrc
 .npm
 Objective
 old_libs

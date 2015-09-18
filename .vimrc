@@ -6,7 +6,7 @@
 "" basic settings
 filetype plugin on
 
-"" ctags settings
+"" ctags settings ----------------------------------------------------{{{
 set showfulltag
 autocmd FileType c,cpp set tags+=~/.vim/tags/cpp
 autocmd FileType c,cpp set tags+=~/.vim/tags/gl
@@ -15,27 +15,31 @@ autocmd FileType c,cpp set tags+=~/.vim/tags/glew
 autocmd FileType c,cpp set tags+=~/.vim/tags/opencvtag
 autocmd FileType html,javascript set tags+=~/.vim/tags/jquery
 autocmd FileType html,javascript set tags+=~/.vim/tags/nodejs
+"" -------------------------------------------------------------------}}}
 
-"" omni completeion
-autocmd FileType c set omnifunc=ccomplete#Complete
-autocmd FileType cpp setl ofu=ccomplete#Complete
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType php setl ofu=phpcomplete#CompletePHP
-autocmd FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType ruby,eruby setl ofu=rubycomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+"" omni completeion --------------------------------------------------{{{
+autocmd FileType c setlocal omnifunc=ccomplete#Complete
+autocmd FileType cpp setlocal ofu=ccomplete#Complete
+autocmd FileType python setlocal omnifunc=python3complete#Complete
+autocmd FileType php setlocal ofu=phpcomplete#CompletePHP
+autocmd FileType html,xhtml setlocal ofu=htmlcomplete#CompleteTags
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType ruby,eruby setlocal ofu=rubycomplete#Complete
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType javascript setlocal omnifunc=javascriptcompleter#CompleteJavaScript
+"" -------------------------------------------------------------------}}}
 
-"" coding settings
+"" coding settings ---------------------------------------------------{{{
 set autoindent
 set nosmartindent
 set complete=.,w,b,u,U,t,k
 set completeopt=menu
 set number
+setlocal foldmethod=marker
+"" -------------------------------------------------------------------}}}
 
-
-"" buffer settings
+"" buffer settings ---------------------------------------------------{{{
 set autoread
 set backupdir=.,~/.vimtmp,/tmp
 set confirm
@@ -46,8 +50,9 @@ set icon
 set iconstring=vim
 set nowritebackup
 autocmd BufRead,BufNewFile *.m setfiletype objc
+"" -------------------------------------------------------------------}}}
 
-"" editing settings
+"" editing settings --------------------------------------------------{{{
 set altkeymap
 set ambiwidth=double
 set backspace=indent,eol,start
@@ -73,8 +78,9 @@ autocmd FileType python set modeline
 set timeoutlen=1000 ttimeoutlen=0
 set whichwrap+=<,>,b,s,[,],~
 set wrap
+"" --------------------------------------------------------------------}}}
 
-"" window settings
+"" window settings ---------------------------------------------------{{{
 set cmdheight=2
 set cmdwinheight=6
 " set columns=100
@@ -97,7 +103,9 @@ set splitright
 set tabpagemax=20
 set title
 set warn
+"" --------------------------------------------------------------------}}}
 
+"" screen size --------------------------------------------------------{{{
 if has("gui_running")
 	set lines=999
 	set columns=999
@@ -109,7 +117,9 @@ if has("unix")
 else
 	set guifont=Consolas:h12
 endif
+"" --------------------------------------------------------------------}}}
 
+"" Custom key mappings ------------------------------------------------{{{
 let mapleader=","
 
 " copy, cut, paste, save
@@ -162,6 +172,7 @@ autocmd		FileType	c		nnoremap ; $a;
 autocmd		FileType	cpp		nnoremap ; $a;
 autocmd		FileType	java	nnoremap ; $a;
 autocmd		FileType	php		nnoremap ; $a;
+autocmd		FileType	javascript nnoremap ; $a;
 
 "" jump window
 inoremap	<C-]>	<Esc><C-W><C-]>
@@ -176,9 +187,11 @@ inoremap <expr>	<C-K>		pumvisible() ? "\<C-P>" : "\<Esc><C-W><C-K>"
 inoremap <expr> <PageDown>	pumvisible() ? "\<PageDown>\<C-P>\<C-N>" : "\<PageDown>"
 inoremap <expr> <PageUp>	pumvisible() ? "\<PageUp>\<C-P>\<C-N>" : "\<PageUp>"
 inoremap <C-D>	<C-X><C-O><C-P>
+"" --------------------------------------------------------------------}}}
 
-"" install pathogen
-execut pathogen#infect()
+"" install pathogen ------------------------------------------------------
+execute pathogen#infect()
+
 
 "" color settings
 set background=dark
@@ -212,6 +225,7 @@ nmap	<F3>	:TagbarToggle<CR>
 nmap	<F4>	:GitGutterToggle<CR>
 nmap	<silent><F5>	:silent ! google-chrome %<CR>:pclose!<CR>:redraw!<CR>
 nmap	<silent><F6>	:call Test_php()<CR>
+nmap	<F7>	:call Test()<CR>
 
 nmap	<leader><space>		:Tabularize / <CR>
 nmap	<leader>"			:Tabularize /"[^"]*"<CR>
@@ -223,8 +237,8 @@ autocmd VimEnter * silent! :SyntasticToggleMode
 autocmd VimEnter * silent! :GitGutterDisable
 autocmd	BufWritePost * silent! :SyntasticCheck
 
+imap <C-F> <C-R><Tab><C-P>
 
- ino <c-f> <c-r>=TriggerSnippet()<cr>
 "" ****** autocomplpop settings ******
 "let g:acp_completeOption = '.,w,b,t'
 "let g:acp_completeoptPreview = 1
@@ -354,7 +368,7 @@ let g:AutoClosePreserveDotReg = 0
 "" snipMate settings
 let g:snips_author = 'Joseph Yu'
 
-"" ****** syntastic settings ******
+"" syntasitc settings ------------------------------------------------{{{
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -389,9 +403,9 @@ let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_loc_list_height = 6
 let g:syntastic_auto_jump = 0
-"" *********************************************************************************
+"" --------------------------------------------------------------------}}}
 
-"" YouCompleteMe Options
+"" YouCompleteMe Options ----------------------------------------------{{{
 nmap	<leader>f	:YcmForceCompileAndDiagnostics<CR>
 nmap	<leader>s	:YcmShowDetailedDiagnostic<CR>
 nmap	<leader>t	:YcmCompleter GetType<CR>
@@ -440,3 +454,4 @@ let g:ycm_disable_for_files_larger_than_kb = 8192
 "autocmd CursorMovedI *.c call feedkeys("\<C-D>")
 "autocmd CursorMovedI *.cpp call feedkeys("\<C-D>")
 
+"" --------------------------------------------------------------------}}}
