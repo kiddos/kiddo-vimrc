@@ -23,6 +23,9 @@ Desktop
 Documents
 Downloads
 examples.desktop
+eclipse
+.eclim
+.eclipse
 .filezilla
 .fltk
 .gconf
@@ -78,6 +81,7 @@ Ruby
 .steampid
 sublime
 .synaptic
+Sublime Text 2
 sysbackup
 Templates
 .thumbnails

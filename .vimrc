@@ -26,8 +26,7 @@ autocmd FileType html,xhtml setlocal ofu=htmlcomplete#CompleteTags
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby,eruby setlocal ofu=rubycomplete#Complete
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType javascript setlocal omnifunc=javascriptcompleter#CompleteJavaScript
+autocmd FileType javascript setlocal omnifunc=tern#Complete
 "" -------------------------------------------------------------------}}}
 
 "" coding settings ---------------------------------------------------{{{
@@ -186,12 +185,12 @@ inoremap <expr>	<C-J>		pumvisible() ? "\<C-N>" : "\<Esc><C-W><C-J>"
 inoremap <expr>	<C-K>		pumvisible() ? "\<C-P>" : "\<Esc><C-W><C-K>"
 inoremap <expr> <PageDown>	pumvisible() ? "\<PageDown>\<C-P>\<C-N>" : "\<PageDown>"
 inoremap <expr> <PageUp>	pumvisible() ? "\<PageUp>\<C-P>\<C-N>" : "\<PageUp>"
-inoremap <C-D>	<C-X><C-O><C-P>
+"inoremap <C-D>	<C-X><C-O><C-P>
+inoremap <C-D>	<C-X><C-U>
 "" --------------------------------------------------------------------}}}
 
 "" install pathogen ------------------------------------------------------
 execute pathogen#infect()
-
 
 "" color settings
 set background=dark
@@ -200,32 +199,12 @@ syntax on
 set t_Co=256
 colorscheme malokai
 
-function! Test_php() range
-	if &ft == "php"
-		let dst = expand('%:t') . ".html"
-		let temp = tempname()
-		execute ":silent ! php % > " . dst
-		execute ":silent ! google-chrome " . dst " > " . temp . " 2>&1 "
-		execute ":pclose!"
-		execute ":redraw!"
-		set splitbelow
-		execute ":6split"
-		execute ":e! " . temp
-		set nosplitbelow
-		let delStatus = delete(dst)
-		if delStatus != 0
-			echo "Fail to Delete temp file"
-		endif
-	endif
-endfunction
 
 nmap	<silent><F1>	:set columns=999<CR>:set lines=66<CR>
 nmap	<silent><F2>	:NERDTreeToggle .<CR>
-nmap	<F3>	:TagbarToggle<CR>
-nmap	<F4>	:GitGutterToggle<CR>
-nmap	<silent><F5>	:silent ! google-chrome %<CR>:pclose!<CR>:redraw!<CR>
-nmap	<silent><F6>	:call Test_php()<CR>
-nmap	<F7>	:call Test()<CR>
+nmap	<F3>			:TagbarToggle<CR>
+nmap	<F4>			:GitGutterToggle<CR>
+nmap	<silent><F5>	:call Test_webpage()<CR>
 
 nmap	<leader><space>		:Tabularize / <CR>
 nmap	<leader>"			:Tabularize /"[^"]*"<CR>
