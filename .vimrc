@@ -20,6 +20,7 @@ autocmd FileType html,javascript set tags+=~/.vim/tags/nodejs
 "" omni completeion --------------------------------------------------{{{
 autocmd FileType c setlocal omnifunc=ccomplete#Complete
 autocmd FileType cpp setlocal ofu=ccomplete#Complete
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
 autocmd FileType python setlocal omnifunc=python3complete#Complete
 autocmd FileType php setlocal ofu=phpcomplete#CompletePHP
 autocmd FileType html,xhtml setlocal ofu=htmlcomplete#CompleteTags
@@ -191,6 +192,9 @@ inoremap <C-D>	<C-X><C-U>
 
 "" install pathogen ------------------------------------------------------
 execute pathogen#infect()
+
+autocmd FileType snippet setlocal foldmethod=marker
+
 
 "" color settings
 set background=dark
@@ -429,8 +433,22 @@ let g:ycm_filepath_completion_use_working_dir = 1
 let g:ycm_cache_omnifunc = 0
 let g:ycm_use_ultisnips_completer = 1
 let g:ycm_disable_for_files_larger_than_kb = 8192
+let g:ycm_semantic_triggers =  {
+\   'c' : ['->', '.', '<', '#'],
+\   'objc' : ['->', '.', '<', '#'],
+\   'cpp' : ['->', '.', '::', "#"],
+\   'objcpp' : ['->', '.', '::', "#"],
+\   'java' : ['.'],
+\   'ocaml' : ['.', '#'],
+\   'perl' : ['->'],
+\   'php' : ['.', '->', '::', '_'],
+\   'javascript' : ['.', "'", '(', '"'],
+\   'cs,d,vim,python,perl6,scala,vb,elixir,go' : ['.'],
+\	'html' : ['"', '<', '/', "=", '"'],
+\   'ruby' : ['.', '::'],
+\   'lua' : ['.', ':'],
+\   'erlang' : [':']
+\ }
 "autocmd CursorMovedI c,cpp,java,python,ruby,eruby,html,css,php,javascript,xml call feedkeys("\<C-X><C-O><C-P>")
-"autocmd CursorMovedI *.c call feedkeys("\<C-D>")
-"autocmd CursorMovedI *.cpp call feedkeys("\<C-D>")
 
 "" --------------------------------------------------------------------}}}
