@@ -15,6 +15,7 @@ autocmd FileType c,cpp set tags+=~/.vim/tags/glew
 autocmd FileType c,cpp set tags+=~/.vim/tags/opencvtag
 autocmd FileType html,javascript set tags+=~/.vim/tags/jquery
 autocmd FileType html,javascript set tags+=~/.vim/tags/nodejs
+autocmd VimEnter,BufNewFile *.h set ft=cpp
 "" -------------------------------------------------------------------}}}
 
 "" omni completeion --------------------------------------------------{{{
@@ -190,11 +191,8 @@ inoremap <expr> <PageUp>	pumvisible() ? "\<PageUp>\<C-P>\<C-N>" : "\<PageUp>"
 inoremap <C-D>	<C-X><C-U>
 "" --------------------------------------------------------------------}}}
 
-"" install pathogen ------------------------------------------------------
+"" install pathogen 
 execute pathogen#infect()
-
-autocmd FileType snippet setlocal foldmethod=marker
-
 
 "" color settings
 set background=dark
@@ -203,12 +201,16 @@ syntax on
 set t_Co=256
 colorscheme malokai
 
+"" javascript settings
+let b:javascript_fold = 1
 
-nmap	<silent><F1>	:set columns=999<CR>:set lines=66<CR>
+"" keybindings ---------------------------------------------------------{{{
+nmap	<silent><F1>	:set columns=999<CR>:set lines=66<CR>:redraw<CR>
 nmap	<silent><F2>	:NERDTreeToggle .<CR>
 nmap	<F3>			:TagbarToggle<CR>
 nmap	<F4>			:GitGutterToggle<CR>
 nmap	<silent><F5>	:call Test_webpage()<CR>
+nmap	<silent><F6>	:setlocal spell!<CR>
 
 nmap	<leader><space>		:Tabularize / <CR>
 nmap	<leader>"			:Tabularize /"[^"]*"<CR>
@@ -216,20 +218,17 @@ nmap	<leader>(			:Tabularize /(.*)<CR>
 nmap	<leader>=			:Tabularize /= <CR>
 nmap	<leader>a			:AV<CR>
 
-autocmd VimEnter * silent! :SyntasticToggleMode
-autocmd VimEnter * silent! :GitGutterDisable
-autocmd	BufWritePost * silent! :SyntasticCheck
+imap	<C-F> <C-R><Tab><C-P>
+"" ---------------------------------------------------------------------}}}
 
-imap <C-F> <C-R><Tab><C-P>
-
-"" ****** autocomplpop settings ******
+"" autocomplpop settings {{{
 "let g:acp_completeOption = '.,w,b,t'
 "let g:acp_completeoptPreview = 1
 "let g:acp_behaviorSnipmateLength = -1
 "let g:acp_behaviorKeywordLength = 1
-"" **********************************************
+"" }}}
 
-"" ****** clang complete settings ******
+"" clang complete settings {{{
 "let g:clang_auto_select = 1
 "let g:clang_complete_copen = 1
 "let g:clang_periodic_quickfix = 0
@@ -244,9 +243,9 @@ imap <C-F> <C-R><Tab><C-P>
 "let g:clang_jumpto_back_key = "<C-T>"
 "autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 "autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-"" **************************************************************
+"" }}}
 
-"" ****** vim-airline configuration ******
+"" vim-airline configuration {{{
 let g:airline_detect_modified = 1
 let g:airline_detect_paste = 1
 let g:airline_detect_crypt = 1
@@ -324,9 +323,9 @@ let g:airline_symbols.readonly = 'ℜ '
 "let g:airline_symbols.whitespace = 'Ξ'
 "let g:airline_symbols.whitespace = '⇆'
 let g:airline_symbols.whitespace = '⌨  '
-" ***********************************************
+"" }}}
 
-"" ****** OmniCppComplete ******
+"" OmniCppComplete options {{{
 "let OmniCpp_GlobalScopeSearch = 1
 "let OmniCpp_NamespaceSearch = 2
 "let OmniCpp_ShowScopeInAbbr = 1
@@ -342,21 +341,29 @@ let g:airline_symbols.whitespace = '⌨  '
 " automatically open and close the popup menu / preview window
 "autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 "autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-"" **********************************************************************
+"" }}}
 
-"" ****** AutoClose options ******
+"" AutoClose options {{{
 let g:AutoClosePairs_add = "[] '' "
 let g:AutoClosePreserveDotReg = 0
+"" }}}
 
-"" snipMate settings
+"" GitGutter options {{{
+autocmd VimEnter * silent! :GitGutterDisable
+"" }}}
+
+"" snipMate settings {{{
 let g:snips_author = 'Joseph Yu'
+"" }}}
 
-"" syntasitc settings ------------------------------------------------{{{
+"" syntasitc settings {{{
+autocmd VimEnter * silent! :SyntasticToggleMode
+autocmd	BufWritePost * silent! :SyntasticCheck
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-highlight	SyntasticErrorSign	cterm=BOLD	ctermfg=255	ctermbg=9	guifg=white	guibg=red
+highlight	SyntasticErrorSign	cterm=BOLD	ctermfg=253	ctermbg=124	guifg=white	guibg=red
 "highlight	SyntasticErrorLine	cterm=BOLD	ctermfg=255	ctermbg=9	guibg=#2f0000
 
 let g:syntastic_c_check_header = 1

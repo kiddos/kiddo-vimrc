@@ -19,6 +19,7 @@ C
 .dbus
 description-pak
 Desktop
+.dbshell
 .dmrc
 Documents
 Downloads
@@ -50,10 +51,12 @@ kalitools
 linux_kernel
 .local
 .macromedia
+.mongorc.js
 .mozilla
 Music
 .mypaint
 .mysql_history
+.node-gyp
 .nv
 .nviminfo
 .nvimlog
@@ -77,6 +80,7 @@ recordings
 .rnd
 Ruby
 Reflection.class
+script
 .steam
 .steampath
 .steampid
