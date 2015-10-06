@@ -58,9 +58,6 @@
 [submodule ".vim/bundle/a.vim"]
 	path = .vim/bundle/a.vim
 	url = https://github.com/kiddos/a.vim.git
-[submodule ".vim/bundle/snipMate"]
-	path = .vim/bundle/snipMate
-	url = https://github.com/vim-scripts/snipMate.git
 [submodule ".vim/bundle/html5.vim"]
 	path = .vim/bundle/html5.vim
 	url = https://github.com/othree/html5.vim.git
@@ -91,3 +88,12 @@
 [submodule ".vim/bundle/vim-jade"]
 	path = .vim/bundle/vim-jade
 	url = https://github.com/digitaltoad/vim-jade.git
+[submodule ".vim/bundle/vim-matlab"]
+	path = .vim/bundle/vim-matlab
+	url = https://github.com/sgeb/vim-matlab.git
+[submodule ".vim/bundle/tlib_vim"]
+	path = .vim/bundle/tlib_vim
+	url = https://github.com/tomtom/tlib_vim.git
+[submodule ".vim/bundle/vim-addon-mw-utils"]
+	path = .vim/bundle/vim-addon-mw-utils
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git

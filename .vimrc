@@ -76,6 +76,11 @@ autocmd FileType python set expandtab
 autocmd FileType python set softtabstop=4
 autocmd FileType python set shiftwidth=4
 autocmd FileType python set modeline
+autocmd FileType matlab set tabstop=4
+autocmd FileType matlab set expandtab
+autocmd FileType matlab set softtabstop=3
+autocmd FileType matlab set shiftwidth=3
+autocmd FileType matlab set modeline
 set timeoutlen=1000 ttimeoutlen=0
 set whichwrap+=<,>,b,s,[,],~
 set wrap
@@ -171,9 +176,11 @@ inoremap	<C-W>	<Esc><C-Y>a
 "" end line semicolon ;
 autocmd		FileType	c		nnoremap ; $a;
 autocmd		FileType	cpp		nnoremap ; $a;
+autocmd		FileType	objc	nnoremap ; $a;
 autocmd		FileType	java	nnoremap ; $a;
 autocmd		FileType	php		nnoremap ; $a;
 autocmd		FileType	javascript nnoremap ; $a;
+autocmd		FileType	matlab	nnoremap ; $a;
 
 "" jump window
 inoremap	<C-]>	<Esc><C-W><C-]>
@@ -191,7 +198,7 @@ inoremap <expr> <PageUp>	pumvisible() ? "\<PageUp>\<C-P>\<C-N>" : "\<PageUp>"
 inoremap <C-D>	<C-X><C-U>
 "" --------------------------------------------------------------------}}}
 
-"" install pathogen 
+"" install pathogen
 execute pathogen#infect()
 
 "" color settings
@@ -205,12 +212,20 @@ colorscheme malokai
 let b:javascript_fold = 1
 
 "" keybindings ---------------------------------------------------------{{{
+function Toggle_ft_m()
+	if &ft == "objc"
+		execute ":setlocal ft=matlab"
+	elseif &ft == "matlab"
+		execute ":setlocal ft=objc"
+	endif
+endfunction
 nmap	<silent><F1>	:set columns=999<CR>:set lines=66<CR>:redraw<CR>
 nmap	<silent><F2>	:NERDTreeToggle .<CR>
 nmap	<F3>			:TagbarToggle<CR>
 nmap	<F4>			:GitGutterToggle<CR>
 nmap	<silent><F5>	:call Test_webpage()<CR>
 nmap	<silent><F6>	:setlocal spell!<CR>
+nmap	<silent><F7>	:call Toggle_ft_m()<CR><CR>
 
 nmap	<leader><space>		:Tabularize / <CR>
 nmap	<leader>"			:Tabularize /"[^"]*"<CR>
@@ -368,8 +383,8 @@ highlight	SyntasticErrorSign	cterm=BOLD	ctermfg=253	ctermbg=124	guifg=white	guib
 
 let g:syntastic_c_check_header = 1
 let g:syntastic_cpp_check_header = 1
-let g:syntastic_c_compiler_options = "-Wall -fopenmp -fmax-errors=10"
-let g:syntastic_cpp_compiler_options = "-Wall -fopenmp"
+let g:syntastic_c_compiler_options = "-Wall -fopenmp -fmax-errors=10 -pthread -std=c99"
+let g:syntastic_cpp_compiler_options = "-Wall -fopenmp -std=c++11 -pthread"
 let g:syntastic_c_include_dirs = ['/usr/include/ImageMagick/']
 let g:syntastic_cpp_include_dirs = ['/usr/include/ImageMagick/']
 let g:syntastic_objc_compiler_options = "-Wall `gnustep-config --objc-flags` `gnustep-config --objc-libs`"
