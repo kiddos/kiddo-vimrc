@@ -15,6 +15,7 @@ C
 .chewing
 .codeblocks
 .compiz
+.composer
 .config
 .dbus
 description-pak
@@ -75,6 +76,7 @@ Pictures
 .profile
 Public
 .pulse-cookie
+.pylint.d
 Python
 .python_history
 recordings

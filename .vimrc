@@ -15,7 +15,6 @@ autocmd FileType c,cpp set tags+=~/.vim/tags/glew
 autocmd FileType c,cpp set tags+=~/.vim/tags/opencvtag
 autocmd FileType html,javascript set tags+=~/.vim/tags/jquery
 autocmd FileType html,javascript set tags+=~/.vim/tags/nodejs
-autocmd VimEnter,BufNewFile *.h set ft=cpp
 "" -------------------------------------------------------------------}}}
 
 "" omni completeion --------------------------------------------------{{{
@@ -50,7 +49,8 @@ set hidden
 set icon
 set iconstring=vim
 set nowritebackup
-autocmd BufRead,BufNewFile *.m setfiletype objc
+autocmd VimEnter,BufRead,BufNewFile *.m set filetype=objc
+autocmd VimEnter,BufRead,BufNewFile *.h set filetype=cpp
 "" -------------------------------------------------------------------}}}
 
 "" editing settings --------------------------------------------------{{{
@@ -67,20 +67,42 @@ set linebreak
 set shiftround
 "set showbreak=+++\
 set smartcase
+" general indenting
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set noexpandtab
+" python indenting
 autocmd FileType python set tabstop=8
 autocmd FileType python set expandtab
 autocmd FileType python set softtabstop=4
 autocmd FileType python set shiftwidth=4
 autocmd FileType python set modeline
+" matlab indenting
 autocmd FileType matlab set tabstop=4
 autocmd FileType matlab set expandtab
 autocmd FileType matlab set softtabstop=3
 autocmd FileType matlab set shiftwidth=3
 autocmd FileType matlab set modeline
+" indenting html
+autocmd FileType html set tabstop=4
+autocmd FileType html set expandtab
+autocmd FileType html set softtabstop=2
+autocmd FileType html set shiftwidth=2
+autocmd FileType html set modeline
+" indenting javascript
+autocmd FileType javascript set tabstop=4
+autocmd FileType javascript set expandtab
+autocmd FileType javascript set softtabstop=2
+autocmd FileType javascript set shiftwidth=2
+autocmd FileType javascript set modeline
+" indenting css
+autocmd FileType css set tabstop=4
+autocmd FileType css set expandtab
+autocmd FileType css set softtabstop=2
+autocmd FileType css set shiftwidth=2
+autocmd FileType css set modeline
+
 set timeoutlen=1000 ttimeoutlen=0
 set whichwrap+=<,>,b,s,[,],~
 set wrap
@@ -380,25 +402,8 @@ set statusline+=%*
 
 highlight	SyntasticErrorSign	cterm=BOLD	ctermfg=253	ctermbg=124	guifg=white	guibg=red
 "highlight	SyntasticErrorLine	cterm=BOLD	ctermfg=255	ctermbg=9	guibg=#2f0000
-
-let g:syntastic_c_check_header = 1
-let g:syntastic_cpp_check_header = 1
-let g:syntastic_c_compiler_options = "-Wall -fopenmp -fmax-errors=10 -pthread -std=c99"
-let g:syntastic_cpp_compiler_options = "-Wall -fopenmp -std=c++11 -pthread"
-let g:syntastic_c_include_dirs = ['/usr/include/ImageMagick/']
-let g:syntastic_cpp_include_dirs = ['/usr/include/ImageMagick/']
-let g:syntastic_objc_compiler_options = "-Wall `gnustep-config --objc-flags` `gnustep-config --objc-libs`"
-"let g:syntastic_objc_compiler = "clang"
-"let g:syntastic_objc_compiler_options += "-DGNU_GUI_LIBRARY=1 -DGNU_RUNTIME=1 "
-"let g:syntastic_objc_compiler_options += "-DGNUSTEP_BASE_LIBRARY=1 -fno-strict-aliasing "
-"let g:syntastic_objc_compiler_options += "-fexceptions -fobjc-exceptions "
-"let g:syntastic_objc_compiler_options += "-D_NATIVE_OBJC_EXCEPTIONS -pthread -fPIC "
-"let g:syntastic_objc_compiler_options += "-Wall -DGSWARN -DGSDIAGNOSE -Wno-import -g -O2 "
-"let g:syntastic_objc_compiler_options += "-fgnu-runtime -fconstant-string-class=NSConstantString"
-"let g:syntastic_objc_include_dirs = ['/usr/include/GNUstep']
-let g:syntastic_python_python_exec = '/usr/bin/python'
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_args='--ignore=E501,E225,E302,E303,W391'
+"
+" general options
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
@@ -408,6 +413,41 @@ let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_loc_list_height = 6
 let g:syntastic_auto_jump = 0
+
+" c options
+let g:syntastic_c_check_header = 1
+let g:syntastic_c_compiler_options = "-Wall -g -O3 -fopenmp -fmax-errors=10 -pthread -std=c99"
+let g:syntastic_c_include_dirs = ['/usr/include/ImageMagick/']
+" c++ options
+let g:syntastic_cpp_check_header = 1
+let g:syntastic_cpp_compiler_options = "-Wall -g -O3 -fopenmp -std=c++11 -pthread -fPIC"
+let g:syntastic_cpp_include_dirs = ['.',
+\		'/usr/include/ImageMagick/',
+\		'/opt/Qt5.5.0/5.5/gcc_64/include',
+\		'/opt/Qt5.5.0/5.5/gcc_64/include/QtWidgets',
+\		'/opt/Qt5.5.0/5.5/gcc_64/include/QtGui',
+\		'/opt/Qt5.5.0/5.5/gcc_64/include/QtCore']
+" objc options
+let g:syntastic_objc_compiler_options = "-Wall `gnustep-config --objc-flags` `gnustep-config --objc-libs` "
+"let g:syntastic_objc_compiler = "clang"
+"let g:syntastic_objc_compiler_options += "-DGNU_GUI_LIBRARY=1 -DGNU_RUNTIME=1 "
+"let g:syntastic_objc_compiler_options += "-DGNUSTEP_BASE_LIBRARY=1 -fno-strict-aliasing "
+"let g:syntastic_objc_compiler_options += "-fexceptions -fobjc-exceptions "
+"let g:syntastic_objc_compiler_options += "-D_NATIVE_OBJC_EXCEPTIONS -pthread -fPIC "
+"let g:syntastic_objc_compiler_options += "-Wall -DGSWARN -DGSDIAGNOSE -Wno-import -g -O2 "
+"let g:syntastic_objc_compiler_options += "-fgnu-runtime -fconstant-string-class=NSConstantString"
+"let g:syntastic_objc_include_dirs = ['/usr/include/GNUstep']
+" python options
+let g:syntastic_python_python_exec = '/usr/bin/python'
+let g:syntastic_python_checkers = ['flake8', 'python']
+let g:syntastic_python_flake8_args='--ignore=E501,E225,E302,E303,W391'
+" html options
+let g:syntastic_html_checkers = ['jshint']
+" javascript options
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_closurecompiler_path = '~/Web/tools/google-closure-compiler.jar'
+" jade options
+let g:syntastic_jade_checkers = ['jade-lint']
 "" --------------------------------------------------------------------}}}
 
 "" YouCompleteMe Options ----------------------------------------------{{{
