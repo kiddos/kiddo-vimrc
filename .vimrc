@@ -51,6 +51,7 @@ set iconstring=vim
 set nowritebackup
 autocmd VimEnter,BufRead,BufNewFile *.m set filetype=objc
 autocmd VimEnter,BufRead,BufNewFile *.h set filetype=cpp
+autocmd VimEnter,BufRead,BufNewFile *.ejs set filetype=html
 "" -------------------------------------------------------------------}}}
 
 "" editing settings --------------------------------------------------{{{
