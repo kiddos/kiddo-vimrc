@@ -8,13 +8,13 @@ filetype plugin on
 
 "" ctags settings ----------------------------------------------------{{{
 set showfulltag
-autocmd FileType c,cpp set tags+=~/.vim/tags/cpp
-autocmd FileType c,cpp set tags+=~/.vim/tags/gl
-autocmd FileType c,cpp set tags+=~/.vim/tags/glut
-autocmd FileType c,cpp set tags+=~/.vim/tags/glew
-autocmd FileType c,cpp set tags+=~/.vim/tags/opencvtag
-autocmd FileType html,javascript set tags+=~/.vim/tags/jquery
-autocmd FileType html,javascript set tags+=~/.vim/tags/nodejs
+"autocmd FileType c,cpp set tags+=~/.vim/tags/cpp
+"autocmd FileType c,cpp set tags+=~/.vim/tags/gl
+"autocmd FileType c,cpp set tags+=~/.vim/tags/glut
+"autocmd FileType c,cpp set tags+=~/.vim/tags/glew
+"autocmd FileType c,cpp set tags+=~/.vim/tags/opencvtag
+"autocmd FileType html,javascript set tags+=~/.vim/tags/jquery
+"autocmd FileType html,javascript set tags+=~/.vim/tags/nodejs
 "" -------------------------------------------------------------------}}}
 
 "" omni completeion --------------------------------------------------{{{
@@ -52,6 +52,7 @@ set nowritebackup
 autocmd VimEnter,BufRead,BufNewFile *.m set filetype=objc
 autocmd VimEnter,BufRead,BufNewFile *.h set filetype=cpp
 autocmd VimEnter,BufRead,BufNewFile *.ejs set filetype=html
+autocmd VimEnter,BufRead,BufNewFile *.pro set filetype=make
 "" -------------------------------------------------------------------}}}
 
 "" editing settings --------------------------------------------------{{{
@@ -74,35 +75,35 @@ set softtabstop=4
 set shiftwidth=4
 set noexpandtab
 " python indenting
-autocmd FileType python set tabstop=8
-autocmd FileType python set expandtab
-autocmd FileType python set softtabstop=4
-autocmd FileType python set shiftwidth=4
-autocmd FileType python set modeline
+autocmd FileType python setlocal tabstop=8
+autocmd FileType python setlocal expandtab
+autocmd FileType python setlocal softtabstop=4
+autocmd FileType python setlocal shiftwidth=4
+autocmd FileType python setlocal modeline
 " matlab indenting
-autocmd FileType matlab set tabstop=4
-autocmd FileType matlab set expandtab
-autocmd FileType matlab set softtabstop=3
-autocmd FileType matlab set shiftwidth=3
-autocmd FileType matlab set modeline
+autocmd FileType matlab setlocal tabstop=4
+autocmd FileType matlab setlocal expandtab
+autocmd FileType matlab setlocal softtabstop=3
+autocmd FileType matlab setlocal shiftwidth=3
+autocmd FileType matlab setlocal modeline
 " indenting html
-autocmd FileType html set tabstop=4
-autocmd FileType html set expandtab
-autocmd FileType html set softtabstop=2
-autocmd FileType html set shiftwidth=2
-autocmd FileType html set modeline
+autocmd FileType html setlocal tabstop=4
+autocmd FileType html setlocal expandtab
+autocmd FileType html setlocal softtabstop=2
+autocmd FileType html setlocal shiftwidth=2
+autocmd FileType html setlocal modeline
 " indenting javascript
-autocmd FileType javascript set tabstop=4
-autocmd FileType javascript set expandtab
-autocmd FileType javascript set softtabstop=2
-autocmd FileType javascript set shiftwidth=2
-autocmd FileType javascript set modeline
+autocmd FileType javascript setlocal tabstop=4
+autocmd FileType javascript setlocal expandtab
+autocmd FileType javascript setlocal softtabstop=2
+autocmd FileType javascript setlocal shiftwidth=2
+autocmd FileType javascript setlocal modeline
 " indenting css
-autocmd FileType css set tabstop=4
-autocmd FileType css set expandtab
-autocmd FileType css set softtabstop=2
-autocmd FileType css set shiftwidth=2
-autocmd FileType css set modeline
+autocmd FileType css setlocal tabstop=4
+autocmd FileType css setlocal expandtab
+autocmd FileType css setlocal softtabstop=2
+autocmd FileType css setlocal shiftwidth=2
+autocmd FileType css setlocal modeline
 
 set timeoutlen=1000 ttimeoutlen=0
 set whichwrap+=<,>,b,s,[,],~
@@ -202,6 +203,8 @@ autocmd		FileType	cpp		nnoremap ; $a;
 autocmd		FileType	objc	nnoremap ; $a;
 autocmd		FileType	java	nnoremap ; $a;
 autocmd		FileType	php		nnoremap ; $a;
+autocmd		FileType	html	nnoremap ; $a;
+autocmd		FileType	css		nnoremap ; $a;
 autocmd		FileType	javascript nnoremap ; $a;
 autocmd		FileType	matlab	nnoremap ; $a;
 
@@ -459,7 +462,7 @@ nmap	<leader>p	:YcmCompleter GetParent<CR>
 nmap	<leader>r	:YcmRestartServer<CR>
 nmap	<leader><Up>	:YcmCompleter GoToDeclaration<CR>
 nmap	<leader><Down>	:YcmCompleter GoToDefinition<CR>
-let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_auto_trigger = 1
 let g:ycm_min_num_identifier_candidate_chars = 0
 let g:ycm_show_diagnostics_ui = 0
@@ -497,21 +500,23 @@ let g:ycm_cache_omnifunc = 0
 let g:ycm_use_ultisnips_completer = 1
 let g:ycm_disable_for_files_larger_than_kb = 8192
 let g:ycm_semantic_triggers =  {
-\   'c' : ['->', '.', '<', '#'],
+\   'c' : ['->', '.', '<', '#', '>', '_', '*', '&', '(', ')', '\\'],
 \   'objc' : ['->', '.', '<', '#'],
-\   'cpp' : ['->', '.', '::', "#"],
-\   'objcpp' : ['->', '.', '::', "#"],
+\   'cpp' : ['->', '.', '::', '#', '<', '>', '_', '*', '&', '\b', '(', ')'],
+\   'objcpp' : ['->', '.', '::', '#'],
 \   'java' : ['.'],
 \   'ocaml' : ['.', '#'],
 \   'perl' : ['->'],
-\   'php' : ['.', '->', '::', '_'],
+\	'css' : ['{', '}', ':'],
+\   'php' : ['.', '->', '::', '_', '$', '[', ']'],
 \   'javascript' : ['.', "'", '(', '"'],
-\   'cs,d,vim,python,perl6,scala,vb,elixir,go' : ['.'],
-\	'html' : ['"', '<', '/', "=", '"'],
+\   'cs,d,vim,python,perl6,scala,vb,elixir,go' : ['.', '(', ')'],
+\	'html' : ['"', '<', '/', '=', '"', '>'],
 \   'ruby' : ['.', '::'],
 \   'lua' : ['.', ':'],
 \   'erlang' : [':']
 \ }
 "autocmd CursorMovedI c,cpp,java,python,ruby,eruby,html,css,php,javascript,xml call feedkeys("\<C-X><C-O><C-P>")
+"autocmd CursorMovedI c,cpp,java,python,ruby,eruby,html,css,php,javascript,xml call feedkeys("\<C-Space>")
 
 "" --------------------------------------------------------------------}}}

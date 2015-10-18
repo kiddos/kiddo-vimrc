@@ -63,6 +63,7 @@ Music
 .nvimlog
 .nvimrc
 .npm
+.netrwhist
 Objective
 old_libs
 octave
@@ -106,3 +107,4 @@ Web
 .xsession-errors
 .xsession-errors.old
 .ycm_extra_conf.pyc
+*.swp
