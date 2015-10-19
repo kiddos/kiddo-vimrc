@@ -85,6 +85,7 @@ recordings
 Ruby
 Reflection.class
 script
+.ssh
 .steam
 .steampath
 .steampid
@@ -97,6 +98,8 @@ Templates
 .thunderbird
 Videos
 vimfiles
+vagrant
+.vagrant.d
 .viminfo
 VirtualBox VMs
 .wireshark

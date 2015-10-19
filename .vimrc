@@ -405,7 +405,8 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 highlight	SyntasticErrorSign	cterm=BOLD	ctermfg=253	ctermbg=124	guifg=white	guibg=red
-"highlight	SyntasticErrorLine	cterm=BOLD	ctermfg=255	ctermbg=9	guibg=#2f0000
+highlight	SyntasticError		cterm=BOLD	ctermfg=253	ctermbg=236	guibg=#2f0000
+highlight	SyntasticErrorLine	cterm=BOLD	ctermfg=253	ctermbg=236	guibg=#2f0000
 "
 " general options
 let g:syntastic_auto_loc_list = 1
