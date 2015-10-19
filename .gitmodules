@@ -109,3 +109,6 @@
 [submodule ".vim/bundle/vim-eunuch"]
 	path = .vim/bundle/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch.git
+[submodule ".vim/bundle/malokai"]
+	path = .vim/bundle/malokai
+	url = https://github.com/kiddos/malokai.git
