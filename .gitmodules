@@ -112,3 +112,6 @@
 [submodule ".vim/bundle/malokai"]
 	path = .vim/bundle/malokai
 	url = https://github.com/kiddos/malokai.git
+[submodule ".vim/bundle/vim-gradle"]
+	path = .vim/bundle/vim-gradle
+	url = https://github.com/tfnico/vim-gradle.git
