@@ -44,6 +44,7 @@ GNUstep
 .gradle
 .gtk-recordmydesktop
 HTML
+hs_err_pid24180.log
 .ICEauthority
 .IdeaIC14
 .java
@@ -52,6 +53,7 @@ kalitools
 linux_kernel
 .local
 .macromedia
+.minecraft
 .mongorc.js
 .mozilla
 Music
@@ -69,6 +71,7 @@ old_libs
 octave
 .octave_hist
 .openvr
+.oracle_jre_usage
 .pam_environment
 PHP
 Pictures
@@ -84,6 +87,7 @@ recordings
 .rnd
 Ruby
 Reflection.class
+.rpmdb
 script
 .ssh
 .steam
