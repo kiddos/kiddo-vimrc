@@ -1,13 +1,12 @@
 .adobe
 .android
 Android
-.AndroidStudio1.3
+.AndroidStudio*
 Assembly
 .audacity-data
 backup
 .bash_history
 .bash_logout
-.bashrc
 Blender
 .bundler
 C
@@ -39,6 +38,7 @@ eclipse
 .gnome
 .gnome2
 .gnome2_private
+.gnupg
 .gnuplot_history
 GNUstep
 .gradle
@@ -54,6 +54,7 @@ linux_kernel
 .local
 .macromedia
 .minecraft
+.mkshrc
 .mongorc.js
 .mozilla
 Music
@@ -88,6 +89,7 @@ recordings
 Ruby
 Reflection.class
 .rpmdb
+.rvm
 script
 .ssh
 .steam
@@ -115,3 +117,5 @@ Web
 .xsession-errors.old
 .ycm_extra_conf.pyc
 *.swp
+.zlogin
+.zshrc
