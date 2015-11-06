@@ -73,9 +73,6 @@
 [submodule ".vim/bundle/tern_for_vim/"]
 	path = .vim/bundle/tern_for_vim
 	url = https://github.com/marijnh/tern_for_vim.git
-[submodule ".vim/bundle/webtools/"]
-	path = .vim/bundle/webtools
-	url = https://github.com/kiddos/webtools.git
 [submodule ".vim/bundle/javacomplete"]
 	path = .vim/bundle/javacomplete
 	url = https://github.com/vim-scripts/javacomplete.git

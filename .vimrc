@@ -36,7 +36,12 @@ set nosmartindent
 set complete=.,w,b,u,U,t,k
 set completeopt=menu
 set number
+autocmd FileType c,cpp,objc,javascript,php setlocal foldmarker={,}
+autocmd FileType c,cpp,objc,xml,html,css,javascript,ruby,php,java,python set foldlevel=20
 setlocal foldmethod=marker
+autocmd Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax
+autocmd Syntax c,cpp,vim,xml,html,xhtml,perl normal zR
+
 "" -------------------------------------------------------------------}}}
 
 "" buffer settings ---------------------------------------------------{{{
@@ -245,6 +250,52 @@ function Toggle_ft_m()
 		execute ":setlocal ft=objc"
 	endif
 endfunction
+
+function! OutlineToggle()
+	if (! exists ("b:outline_mode"))
+		let b:outline_mode = 0
+	endif
+	if (b:outline_mode == 0)
+		syn region myFold start="{" end="}" transparent fold
+		syn sync fromstart
+		set foldmethod=syntax
+		silent! exec "%s/{{{/<<</"
+		silent! exec "%s/}}}/>>>/"
+		let b:outline_mode = 1
+	else
+		set foldmethod=marker
+		silent! exec "%s/<<</{{{/"
+		silent! exec "%s/>>>/}}}/"
+		let b:outline_mode = 0
+	endif
+endfunction
+
+function! Test_webpage()
+	if &ft == "php"
+		echom "php file type"
+		let dst = expand('%:t') . ".html"
+		let temp = tempname()
+		execute ":silent ! php % > " . dst
+		execute ":silent ! google-chrome " . dst " > " . temp . " 2>&1 "
+		execute ":pclose!"
+		execute ":redraw!"
+		set splitbelow
+		execute ":6split"
+		execute ":e! " . temp
+		set nosplitbelow
+		let delStatus = delete(dst)
+		if delStatus != 0
+			echo "Fail to Delete temp file"
+		endif
+	elseif &ft == "html"
+		let this_file = expand('%:p')
+		echom "html file type"
+		execute ":silent ! google-chrome " . this_file
+		execute ":pclose!"
+		execute ":redraw!"
+	endif
+endfunction
+
 nmap	<silent><F1>	:set columns=999<CR>:set lines=66<CR>:redraw<CR>
 nmap	<silent><F2>	:NERDTreeToggle .<CR>
 nmap	<F3>			:TagbarToggle<CR>
@@ -252,12 +303,28 @@ nmap	<F4>			:GitGutterToggle<CR>
 nmap	<silent><F5>	:call Test_webpage()<CR>
 nmap	<silent><F6>	:setlocal spell!<CR>
 nmap	<silent><F7>	:call Toggle_ft_m()<CR><CR>
+nmap	<silent><F8>	:call OutlineToggle()<CR>
 
 nmap	<leader><space>		:Tabularize / <CR>
 nmap	<leader>"			:Tabularize /"[^"]*"<CR>
 nmap	<leader>(			:Tabularize /(.*)<CR>
 nmap	<leader>=			:Tabularize /= <CR>
 nmap	<leader>a			:AV<CR>
+nmap	<leader>f			za
+nmap	<leader>F			zA
+
+nmap	<leader>d	:YcmForceCompileAndDiagnostics<CR>
+nmap	<leader>s	:YcmShowDetailedDiagnostic<CR>
+nmap	<leader>t	:YcmCompleter GetType<CR>
+nmap	<leader>p	:YcmCompleter GetParent<CR>
+nmap	<leader>r	:YcmRestartServer<CR>
+nmap	<leader><Up>	:YcmCompleter GoToDeclaration<CR>
+nmap	<leader><Down>	:YcmCompleter GoToDefinition<CR>
+
+nmap	J	<C-D>
+nmap	K	<C-U>
+nmap	<C-J>	<C-E>
+nmap	<C-K>	<C-Y>
 
 imap	<C-F> <C-R><Tab><C-P>
 "" ---------------------------------------------------------------------}}}
@@ -534,13 +601,6 @@ let g:syntastic_jade_checkers = ['jade-lint']
 "" --------------------------------------------------------------------}}}
 
 "" YouCompleteMe Options ----------------------------------------------{{{
-nmap	<leader>f	:YcmForceCompileAndDiagnostics<CR>
-nmap	<leader>s	:YcmShowDetailedDiagnostic<CR>
-nmap	<leader>t	:YcmCompleter GetType<CR>
-nmap	<leader>p	:YcmCompleter GetParent<CR>
-nmap	<leader>r	:YcmRestartServer<CR>
-nmap	<leader><Up>	:YcmCompleter GoToDeclaration<CR>
-nmap	<leader><Down>	:YcmCompleter GoToDefinition<CR>
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_auto_trigger = 1
 let g:ycm_min_num_identifier_candidate_chars = 0
