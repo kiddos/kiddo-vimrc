@@ -323,8 +323,8 @@ nmap	<leader><Down>	:YcmCompleter GoToDefinition<CR>
 
 nmap	J	<C-D>
 nmap	K	<C-U>
-nmap	<C-J>	<C-E>
-nmap	<C-K>	<C-Y>
+nmap	H	<C-E>
+nmap	L	<C-Y>
 
 imap	<C-F> <C-R><Tab><C-P>
 "" ---------------------------------------------------------------------}}}
