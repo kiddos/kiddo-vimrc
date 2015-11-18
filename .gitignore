@@ -63,6 +63,7 @@ Music
 .mysql_history
 .node-gyp
 .nv
+.nvidia-settings-rc
 .nviminfo
 .nvimlog
 .nvimrc
