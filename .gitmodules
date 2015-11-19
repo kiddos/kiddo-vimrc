@@ -115,3 +115,6 @@
 [submodule ".vim/bundle/vim-javacomplete2"]
 	path = .vim/bundle/vim-javacomplete2
 	url = https://github.com/artur-shaik/vim-javacomplete2.git
+[submodule ".vim/bundle/vim-vhdl"]
+	path = .vim/bundle/vim-vhdl
+	url = https://github.com/kiddos/vim-vhdl.git

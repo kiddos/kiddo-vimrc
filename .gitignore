@@ -107,6 +107,7 @@ Videos
 vimfiles
 vagrant
 .vagrant.d
+vhdl
 .viminfo
 VirtualBox VMs
 .wireshark
