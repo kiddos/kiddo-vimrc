@@ -118,3 +118,6 @@
 [submodule ".vim/bundle/vim-vhdl"]
 	path = .vim/bundle/vim-vhdl
 	url = https://github.com/kiddos/vim-vhdl.git
+[submodule ".vim/bundle/verilog_systemverilog.vim"]
+	path = .vim/bundle/verilog_systemverilog.vim
+	url = https://github.com/vhda/verilog_systemverilog.vim.git
