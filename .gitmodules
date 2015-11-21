@@ -121,3 +121,6 @@
 [submodule ".vim/bundle/verilog_systemverilog.vim"]
 	path = .vim/bundle/verilog_systemverilog.vim
 	url = https://github.com/vhda/verilog_systemverilog.vim.git
+[submodule ".vim/bundle/vim-hdl"]
+	path = .vim/bundle/vim-hdl
+	url = https://github.com/suoto/vim-hdl.git
