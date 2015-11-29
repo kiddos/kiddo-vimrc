@@ -44,6 +44,7 @@ eclipse
 GNUstep
 .gradle
 .gtk-recordmydesktop
+.gstream*
 HTML
 hs_err_pid24180.log
 .ICEauthority
@@ -70,6 +71,7 @@ Music
 .nvimrc
 .npm
 .netrwhist
+.nvim
 Objective
 old_libs
 octave
