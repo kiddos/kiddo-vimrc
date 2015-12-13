@@ -24,3 +24,4 @@ fi
 LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH:/usr/local/lib
 PATH=.:$PATH:~/Android/android-studio/bin:/usr/local/share/jdk1.8.0_40/bin
 JAVA_HOME=/usr/local/share/jdk1.8.0_66/
+export IBUS_ENABLE_SYNC_MODE=1
