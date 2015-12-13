@@ -58,8 +58,13 @@ fi
 if [ "$color_prompt" = yes ]; then
 	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-	#PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;32m\]⌘ \[\033[01;32m\]\h\[\033[01;31m\]> \[\033[01;34m\]\w\[\033[00m\] Σ '
+    #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;32m\]⌘ \[\033[01;32m\]\h\[\033[01;31m\]> \[\033[01;34m\]\w\[\033[00m\] Σ '
+    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u @\[\033[01;34m\]\w\[\033[00m\] Σ '
+    #PS1='\[\033[01;34m\]\u\[\033[01;31m\]@(\[\033[01;33m\]\w\[\033[01;31m\])\[\033[01;34m\]⎇  \[\033[01;31m\](\[\033[01;32m\]`git rev-parse --abbrev-ref HEAD`\[\033[01;31m\]) \[\033[01;33m\]Δ \[\033[00m\]'
+    #PS1='\[\033[01;34m\]\u\[\033[01;31m\]@(\[\033[01;33m\]\w\[\033[01;31m\])\[\033[01;32m\]⎇  \[\033[01;31m\](\[\033[01;33m\]`git rev-parse --abbrev-ref HEAD`\[\033[01;31m\]) \[\033[00m\]Δ'
+    #PS1='\[\033[01;34m\]\u\[\033[01;31m\]@(\[\033[01;33m\]\w\[\033[01;31m\])\[\033[01;32m\]⎇  \[\033[01;31m\](\[\033[01;33m\]`git rev-parse --abbrev-ref HEAD`\[\033[01;31m\]) \[\033[00m\]$'
+    PS1='\[\033[01;34m\]\u\[\033[01;33m\]@\[\033[01;31m\](\[\033[01;32m\]\w\[\033[01;31m\])\[\033[00m\]≡ Σ '
 fi
 unset color_prompt force_color_prompt
 
@@ -125,8 +130,7 @@ alias disable_mouse_while_typing='syndaemon -i 1 -d';
 alias tmux='tmux -2'
 
 alias ctagscpp='ctags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++'
-
-
+alias vim='nvim'
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 source ~/.rvm/scripts/rvm
