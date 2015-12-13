@@ -27,7 +27,7 @@ autocmd FileType html,xhtml setlocal ofu=htmlcomplete#CompleteTags
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby,eruby setlocal ofu=rubycomplete#Complete
-autocmd FileType javascript setlocal omnifunc=tern#Complete
+"autocmd FileType javascript setlocal omnifunc=tern#Complete
 "" -------------------------------------------------------------------}}}
 
 "" coding settings ---------------------------------------------------{{{
